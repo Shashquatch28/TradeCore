@@ -6,6 +6,11 @@ C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\engin
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\enums\OrderSide.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\enums\OrderStatus.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\enums\OrderType.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\events\DomainEvent.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\events\EventBus.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\events\OrderCancelledEvent.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\events\OrderPlacedEvent.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\events\TradeExecutedEvent.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\Main.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\LimitOrder.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\MarketOrder.java
@@ -16,7 +21,8 @@ C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\Trade.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\Tradeable.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\observer\TradeLedger.java
-C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\observer\TradeNotifier.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\portfolio\PortfolioUpdater.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\registry\TraderRegistry.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\strategy\FIFOMatchingStrategy.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\strategy\MatchingStrategy.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\trader\InstitutionalTrader.java

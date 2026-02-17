@@ -4,8 +4,11 @@ import com.tradecore.engine.MatchingEngine;
 import com.tradecore.engine.OrderFactory;
 import com.tradecore.enums.OrderSide;
 import com.tradecore.enums.OrderType;
+import com.tradecore.events.TradeExecutedEvent;
 import com.tradecore.model.Order;
 import com.tradecore.model.Trade;
+import com.tradecore.portfolio.PortfolioUpdater;
+import com.tradecore.registry.TraderRegistry;
 import com.tradecore.strategy.FIFOMatchingStrategy;
 import com.tradecore.trader.InstitutionalTrader;
 import com.tradecore.trader.RetailTrader;
@@ -16,18 +19,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // 1. Traders
+        // 1️⃣ Traders
         RetailTrader alice = new RetailTrader("T1", "Alice", 100_000);
         InstitutionalTrader bob = new InstitutionalTrader("T2", "Bob Fund", 100_000);
 
-        // 2. Engine + strategy
+        // 2️⃣ Engine + strategy
         MatchingEngine engine = MatchingEngine.getInstance();
         engine.setMatchingStrategy(new FIFOMatchingStrategy());
 
-        engine.registerObserver(alice);
-        engine.registerObserver(bob);
+        // 3️⃣ Trader Registry
+        TraderRegistry traderRegistry = new TraderRegistry();
+        traderRegistry.registerTrader(alice);
+        traderRegistry.registerTrader(bob);
 
-        // 3. Create orders via OrderFactory
+        // 4️⃣ Portfolio Updater (event handler)
+        PortfolioUpdater portfolioUpdater = new PortfolioUpdater(traderRegistry);
+
+        engine.getEventBus().subscribe(
+                TradeExecutedEvent.class,
+                portfolioUpdater::onTradeExecuted
+        );
+
+        // 5️⃣ Create orders
         Order buyOrder = OrderFactory.createOrder(
                 OrderType.LIMIT,
                 "O1",
@@ -51,10 +64,10 @@ public class Main {
         engine.submitOrder(buyOrder);
         engine.submitOrder(sellOrder);
 
-        // 4. Match for a specific symbol
+        // 6️⃣ Match
         List<Trade> trades = engine.match("AAPL");
 
-        // 5. Output
+        // 7️⃣ Output
         System.out.println("=== Trades Executed ===");
         trades.forEach(trade ->
                 System.out.println(
