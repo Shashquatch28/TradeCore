@@ -33,4 +33,16 @@ public abstract class Order implements Tradeable {
     public String getSymbol() {
         return symbol;
     }
+
+    public OrderSide getSide() {
+        return side;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+    
+    public String getOrderId() {
+        return orderId;
+    }
 }

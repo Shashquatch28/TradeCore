@@ -1,9 +1,14 @@
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\engine\MatchingEngine.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\engine\OrderBook.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\enums\OrderSide.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\enums\OrderStatus.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\enums\OrderType.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\Order.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\Portfolio.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\Trade.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\Tradeable.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\strategy\FIFOMatchingStrategy.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\strategy\MatchingStrategy.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\trader\InstitutionalTrader.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\trader\RetailTrader.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\trader\Trader.java
