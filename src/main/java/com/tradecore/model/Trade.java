@@ -7,12 +7,21 @@ public final class Trade {
     private final String symbol;
     private final double price;
     private final int quantity;
+    private final String buyerId;
+    private final String sellerId;
     private final Instant timestamp;
 
-    public Trade(String symbol, double price, int quantity) {
+    public Trade(String symbol,
+                 double price,
+                 int quantity,
+                 String buyerId,
+                 String sellerId) {
+
         this.symbol = symbol;
         this.price = price;
         this.quantity = quantity;
+        this.buyerId = buyerId;
+        this.sellerId = sellerId;
         this.timestamp = Instant.now();
     }
 
@@ -26,6 +35,14 @@ public final class Trade {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public String getBuyerId() {
+        return buyerId;
+    }
+
+    public String getSellerId() {
+        return sellerId;
     }
 
     public Instant getTimestamp() {

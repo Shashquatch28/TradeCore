@@ -1,8 +1,9 @@
 package com.tradecore.trader;
 
 import com.tradecore.model.Order;
+import com.tradecore.observer.TradeNotifier;
 
-public abstract class Trader {
+public abstract class Trader implements TradeNotifier {
 
     protected final String traderId;
     protected final String name;

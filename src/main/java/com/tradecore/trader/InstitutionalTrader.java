@@ -2,6 +2,7 @@ package com.tradecore.trader;
 
 import com.tradecore.model.Order;
 import com.tradecore.model.Portfolio;
+import com.tradecore.model.Trade;
 
 public class InstitutionalTrader extends Trader {
 
@@ -19,5 +20,17 @@ public class InstitutionalTrader extends Trader {
 
     public Portfolio getPortfolio() {
         return portfolio;
+    }
+
+    @Override
+    public void onTradeExecuted(Trade trade) {
+        // TEMPORARY: assume buy side
+        // Will be fixed when order ownership is introduced
+        portfolio.applyTrade(
+                trade.getSymbol(),
+                trade.getQuantity(),
+                trade.getPrice(),
+                true
+        );
     }
 }

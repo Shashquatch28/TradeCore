@@ -19,8 +19,9 @@ public class FIFOMatchingStrategy implements MatchingStrategy {
             Order buy = orderBook.getBestBuy();
             Order sell = orderBook.getBestSell();
 
+            // No price match possible
             if (buy.getPrice() < sell.getPrice()) {
-                break; // No price match possible
+                break;
             }
 
             int tradedQty = Math.min(buy.getQuantity(), sell.getQuantity());
@@ -29,14 +30,25 @@ public class FIFOMatchingStrategy implements MatchingStrategy {
             Trade trade = new Trade(
                     buy.getSymbol(),
                     tradePrice,
-                    tradedQty
+                    tradedQty,
+                    buy.getTrader().getTraderId(),
+                    sell.getTrader().getTraderId()
             );
 
             trades.add(trade);
 
-            // NOTE: quantity reduction & order removal
-            // will be handled by MatchingEngine (next step)
-            break;
+            // Reduce quantities (handles PARTIAL / FILLED internally)
+            buy.reduceQuantity(tradedQty);
+            sell.reduceQuantity(tradedQty);
+
+            // Remove fully filled orders
+            if (buy.getQuantity() == 0) {
+                orderBook.removeBestBuy();
+            }
+
+            if (sell.getQuantity() == 0) {
+                orderBook.removeBestSell();
+            }
         }
 
         return trades;

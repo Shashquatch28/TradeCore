@@ -24,4 +24,10 @@ public class Portfolio {
     public Map<String, Integer> getPositions() {
         return Map.copyOf(positions);
     }
+
+    public void applyTrade(String symbol, int quantity, double price, boolean isBuy) {
+        int signedQty = isBuy ? quantity : -quantity;
+        positions.put(symbol, positions.getOrDefault(symbol, 0) + signedQty);
+        cashBalance -= signedQty * price;
+    }
 }
