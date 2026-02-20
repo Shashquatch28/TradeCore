@@ -1,12 +1,197 @@
-2026-02-17 22:37:53.017 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
-2026-02-17 22:37:53.036 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
-2026-02-17 22:37:53.037 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
-2026-02-17 22:37:53.049 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-02-17 22:37:53.050 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
-2026-02-17 22:37:53.050 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
-2026-02-17 22:37:53.059 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-02-17 22:37:53.059 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
-2026-02-17 22:37:53.059 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
-2026-02-17 22:37:53.064 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
-2026-02-17 22:37:53.065 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
-2026-02-17 22:37:53.065 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-02-20 09:28:45.871 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-02-20 09:28:45.977 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-02-20 09:28:46.008 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-20 09:28:46.047 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-02-20 09:28:49.104 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:28:49.109 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-02-20 09:28:49.175 ERROR com.tradecore.websocket.WebSocketServer - Failed to broadcast event
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Java 8 date/time type `java.time.Instant` not supported by default: add Module "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" to enable handling (through reference chain: com.tradecore.events.TradeExecutedEvent["trade"]->com.tradecore.model.Trade["timestamp"])
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1330)
+	at com.fasterxml.jackson.databind.ser.impl.UnsupportedTypeSerializer.serialize(UnsupportedTypeSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:732)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:183)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:732)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:183)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:502)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:341)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4799)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:4040)
+	at com.tradecore.websocket.WebSocketServer.broadcast(WebSocketServer.java:80)
+	at com.tradecore.websocket.WebSocketServer.onTradeExecuted(WebSocketServer.java:73)
+	at com.tradecore.events.EventBus.publish(EventBus.java:31)
+	at com.tradecore.engine.MatchingEngine.match(MatchingEngine.java:170)
+	at com.tradecore.engine.MatchingEngine.matchIfPossible(MatchingEngine.java:194)
+	at com.tradecore.engine.AutoMatchOnPriceListener.onPriceTick(AutoMatchOnPriceListener.java:29)
+	at com.tradecore.events.EventBus.publish(EventBus.java:31)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:58)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-20 09:28:49.179 INFO  com.tradecore.engine.MatchingEngine - Auto-matching triggered for symbol=AAPL trades=1
+2026-02-20 09:28:49.182 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:28:56.315 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:28:56.316 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:29:06.333 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:29:06.334 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:29:16.902 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:29:16.904 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:29:26.321 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:29:26.322 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:29:36.282 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:29:36.284 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:29:46.051 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-02-20 09:29:46.053 WARN  com.tradecore.marketdata.MarketDataService - Price fetch failed for AAPL
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:430)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2094)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:902)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.tradecore.marketdata.FinnhubRestClient.fetchPrice(FinnhubRestClient.java:62)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:55)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-20 09:29:46.115 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
+2026-02-20 09:39:46.088 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-02-20 09:39:46.387 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-02-20 09:39:46.449 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-20 09:39:46.465 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-02-20 09:39:47.607 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:39:47.613 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-02-20 09:39:47.751 ERROR com.tradecore.websocket.WebSocketServer - Failed to broadcast event
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Java 8 date/time type `java.time.Instant` not supported by default: add Module "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" to enable handling (through reference chain: java.util.ImmutableCollections$MapN["data"]->com.tradecore.model.Trade["timestamp"])
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1330)
+	at com.fasterxml.jackson.databind.ser.impl.UnsupportedTypeSerializer.serialize(UnsupportedTypeSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:732)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:183)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeFields(MapSerializer.java:808)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeWithoutTypeInfo(MapSerializer.java:764)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:720)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:502)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:341)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4799)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:4040)
+	at com.tradecore.websocket.WebSocketServer.broadcast(WebSocketServer.java:93)
+	at com.tradecore.websocket.WebSocketServer.handleTradeExecuted(WebSocketServer.java:83)
+	at com.tradecore.events.EventBus.publish(EventBus.java:31)
+	at com.tradecore.engine.MatchingEngine.match(MatchingEngine.java:170)
+	at com.tradecore.engine.MatchingEngine.matchIfPossible(MatchingEngine.java:194)
+	at com.tradecore.engine.AutoMatchOnPriceListener.onPriceTick(AutoMatchOnPriceListener.java:29)
+	at com.tradecore.events.EventBus.publish(EventBus.java:31)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:58)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-20 09:39:47.757 INFO  com.tradecore.engine.MatchingEngine - Auto-matching triggered for symbol=AAPL trades=1
+2026-02-20 09:39:47.766 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:39:56.911 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:39:56.912 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:40:07.050 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:40:07.052 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:40:16.773 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:40:16.774 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:40:26.780 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:40:26.781 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:40:37.151 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:40:37.152 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:40:46.483 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-02-20 09:40:46.484 WARN  com.tradecore.marketdata.MarketDataService - Price fetch failed for AAPL
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:430)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2094)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:902)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.tradecore.marketdata.FinnhubRestClient.fetchPrice(FinnhubRestClient.java:62)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:55)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-20 09:40:46.524 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
+2026-02-20 09:45:25.166 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-02-20 09:45:25.322 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-02-20 09:45:25.357 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-20 09:45:25.368 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-02-20 09:45:26.195 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:45:26.198 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-02-20 09:45:26.249 ERROR com.tradecore.websocket.WebSocketServer - Failed to broadcast event
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Java 8 date/time type `java.time.Instant` not supported by default: add Module "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" to enable handling (through reference chain: java.util.ImmutableCollections$MapN["data"]->com.tradecore.model.Trade["timestamp"])
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1330)
+	at com.fasterxml.jackson.databind.ser.impl.UnsupportedTypeSerializer.serialize(UnsupportedTypeSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:732)
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:770)
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:183)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeFields(MapSerializer.java:808)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serializeWithoutTypeInfo(MapSerializer.java:764)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:720)
+	at com.fasterxml.jackson.databind.ser.std.MapSerializer.serialize(MapSerializer.java:35)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:502)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:341)
+	at com.fasterxml.jackson.databind.ObjectMapper._writeValueAndClose(ObjectMapper.java:4799)
+	at com.fasterxml.jackson.databind.ObjectMapper.writeValueAsString(ObjectMapper.java:4040)
+	at com.tradecore.websocket.WebSocketServer.broadcast(WebSocketServer.java:93)
+	at com.tradecore.websocket.WebSocketServer.handleTradeExecuted(WebSocketServer.java:83)
+	at com.tradecore.events.EventBus.publish(EventBus.java:31)
+	at com.tradecore.engine.MatchingEngine.match(MatchingEngine.java:170)
+	at com.tradecore.engine.MatchingEngine.matchIfPossible(MatchingEngine.java:194)
+	at com.tradecore.engine.AutoMatchOnPriceListener.onPriceTick(AutoMatchOnPriceListener.java:29)
+	at com.tradecore.events.EventBus.publish(EventBus.java:31)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:58)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-20 09:45:26.251 INFO  com.tradecore.engine.MatchingEngine - Auto-matching triggered for symbol=AAPL trades=1
+2026-02-20 09:45:26.254 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:45:35.665 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:45:35.668 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:45:45.706 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:45:45.707 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:45:55.731 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:45:55.732 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:46:05.740 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:46:05.742 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:46:15.810 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=260.58
+2026-02-20 09:46:15.810 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 260.58
+2026-02-20 09:46:25.379 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-02-20 09:46:25.380 WARN  com.tradecore.marketdata.MarketDataService - Price fetch failed for AAPL
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:430)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2094)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:902)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.tradecore.marketdata.FinnhubRestClient.fetchPrice(FinnhubRestClient.java:62)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:55)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-02-20 09:46:25.420 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped

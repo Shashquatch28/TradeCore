@@ -4,11 +4,13 @@ import com.tradecore.events.EventBus;
 import com.tradecore.events.OrderPlacedEvent;
 import com.tradecore.events.OrderCancelledEvent;
 import com.tradecore.events.TradeExecutedEvent;
+import com.tradecore.events.PriceTickEvent;
 import com.tradecore.model.Order;
 import com.tradecore.model.Stock;
 import com.tradecore.model.Trade;
 import com.tradecore.observer.TradeLedger;
 import com.tradecore.strategy.MatchingStrategy;
+import com.tradecore.metrics.EventMetricsListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,19 +40,45 @@ public class MatchingEngine {
     private final StockRegistry stockRegistry;
     private MatchingStrategy matchingStrategy;
 
-    // Phase 3: Event-driven core
+    // Event-driven core
     private final EventBus eventBus = new EventBus();
 
     // Read model
     private final TradeLedger tradeLedger = new TradeLedger();
 
+    // Metrics
+    private final EventMetricsListener metrics = new EventMetricsListener();
+
+    // Market price listener
+    private final PriceUpdateListener priceUpdateListener;
+
+    /* ===================== CONSTRUCTOR ===================== */
+
     private MatchingEngine() {
         this.stockRegistry = new StockRegistry();
+        this.priceUpdateListener = new PriceUpdateListener(stockRegistry);
 
-        // TradeLedger listens to TradeExecutedEvent
+        // Trade ledger listener
         eventBus.subscribe(
                 TradeExecutedEvent.class,
                 tradeLedger::onTradeExecuted
+        );
+
+        // Metrics listener
+        eventBus.subscribe(
+                TradeExecutedEvent.class,
+                metrics::onTradeExecuted
+        );
+
+        // Market price updates
+        eventBus.subscribe(
+                PriceTickEvent.class,
+                priceUpdateListener::onPriceTick
+        );
+        // Auto match on price tick
+        eventBus.subscribe(
+            com.tradecore.events.PriceTickEvent.class,
+            new AutoMatchOnPriceListener(this)::onPriceTick
         );
     }
 
@@ -115,9 +143,6 @@ public class MatchingEngine {
 
     /* ===================== MATCHING ===================== */
 
-    /**
-     * Match orders for a specific stock symbol
-     */
     public List<Trade> match(String symbol) {
 
         if (matchingStrategy == null) {
@@ -157,4 +182,28 @@ public class MatchingEngine {
     public StockRegistry getStockRegistry() {
         return stockRegistry;
     }
+
+    public EventMetricsListener getMetrics() {
+        return metrics;
+    }
+
+     /* ===================== AUTO MATCHING ===================== */
+   
+    public void matchIfPossible(String symbol) {
+        try {
+            List<Trade> trades = match(symbol);
+    
+            if (!trades.isEmpty()) {
+                log.info(
+                        "Auto-matching triggered for symbol={} trades={}",
+                        symbol,
+                        trades.size()
+                );
+            }
+        } catch (Exception e) {
+            log.error("Auto-matching failed for symbol={}", symbol, e);
+        }
+    }
+
+    
 }

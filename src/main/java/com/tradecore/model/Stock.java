@@ -2,6 +2,9 @@ package com.tradecore.model;
 
 import com.tradecore.engine.OrderBook;
 
+/**
+ * Aggregate root representing a tradable stock.
+ */
 public class Stock {
 
     private final String symbol;
@@ -22,6 +25,9 @@ public class Stock {
         return currentPrice;
     }
 
+    /**
+     * Updates the latest market price (used by PriceTickEvent).
+     */
     public void updatePrice(double price) {
         this.currentPrice = price;
     }

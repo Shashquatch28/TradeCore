@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TradeCore Live Market</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #38bdf8;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        th, td {
+            border: 1px solid #334155;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background: #1e293b;
+        }
+
+        .price {
+            font-size: 1.5em;
+            margin-top: 12px;
+        }
+
+        .green { color: #22c55e; }
+        .red { color: #ef4444; }
+    </style>
+</head>
+<body>
+
+<h1>📈 TradeCore – Live Market</h1>
+
+<div class="price">
+    AAPL Price: <span id="price">--</span>
+</div>
+
+<h2>🧾 Trades</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Symbol</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Buyer</th>
+        <th>Seller</th>
+    </tr>
+    </thead>
+    <tbody id="trades"></tbody>
+</table>
+
+<script>
+    const priceEl = document.getElementById("price");
+    const tradesEl = document.getElementById("trades");
+
+    const ws = new WebSocket("ws://localhost:8080/ws/market");
+
+    ws.onopen = () => {
+        console.log("WebSocket connected");
+    };
+
+    ws.onmessage = (event) => {
+        const msg = JSON.parse(event.data);
+
+        // PriceTickEvent
+        if (msg.price) {
+            priceEl.textContent = msg.price.price.toFixed(2);
+            priceEl.className = "green";
+        }
+
+        // TradeExecutedEvent
+        if (msg.trade) {
+            const t = msg.trade;
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${t.symbol}</td>
+                <td>${t.quantity}</td>
+                <td>${t.price}</td>
+                <td>${t.buyerId}</td>
+                <td>${t.sellerId}</td>
+            `;
+
+            tradesEl.prepend(row);
+        }
+    };
+
+    ws.onerror = (e) => {
+        console.error("WebSocket error", e);
+    };
+</script>
+
+</body>
+</html>

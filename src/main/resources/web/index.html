@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>TradeCore Live Feed</title>
+    <style>
+        body { font-family: Arial; background: #111; color: #eee; }
+        h2 { margin-top: 20px; }
+        .box { border: 1px solid #444; padding: 10px; margin-bottom: 15px; }
+        .price { color: #4caf50; }
+        .trade { color: #03a9f4; }
+    </style>
+</head>
+<body>
+
+<h1>📈 TradeCore Live Market</h1>
+
+<div class="box">
+    <h2>Price Ticks</h2>
+    <ul id="prices"></ul>
+</div>
+
+<div class="box">
+    <h2>Trades</h2>
+    <ul id="trades"></ul>
+</div>
+
+<script>
+    const ws = new WebSocket("ws://localhost:8080/ws/market");
+
+    ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+
+        if (data.price) {
+            const li = document.createElement("li");
+            li.className = "price";
+            li.innerText = `${data.price.symbol} @ ${data.price.price}`;
+            document.getElementById("prices").prepend(li);
+        }
+
+        if (data.trade) {
+            const t = data.trade;
+            const li = document.createElement("li");
+            li.className = "trade";
+            li.innerText =
+                `${t.symbol} | Qty ${t.quantity} | ${t.price} | ${t.buyerId} → ${t.sellerId}`;
+            document.getElementById("trades").prepend(li);
+        }
+    };
+
+    ws.onopen = () => console.log("WebSocket connected");
+</script>
+
+</body>
+</html>

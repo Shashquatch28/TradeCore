@@ -1,0 +1,134 @@
+2026-02-17 22:37:53.017 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-02-17 22:37:53.036 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-02-17 22:37:53.037 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-02-17 22:37:53.049 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 22:37:53.050 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-02-17 22:37:53.050 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-02-17 22:37:53.059 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 22:37:53.059 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-02-17 22:37:53.059 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-02-17 22:37:53.064 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-02-17 22:37:53.065 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-02-17 22:37:53.065 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-02-17 22:46:41.321 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-02-17 22:46:41.333 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-02-17 22:46:41.335 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-02-17 22:46:41.352 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 22:46:41.352 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-02-17 22:46:41.352 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-02-17 22:46:41.363 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 22:46:41.363 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-02-17 22:46:41.363 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-02-17 22:46:41.370 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-02-17 22:46:41.370 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-02-17 22:46:41.370 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-02-17 22:50:25.260 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-02-17 22:50:25.269 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-02-17 22:50:25.270 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-02-17 22:50:25.281 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 22:50:25.282 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-02-17 22:50:25.282 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-02-17 22:50:25.290 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 22:50:25.290 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-02-17 22:50:25.291 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-02-17 22:50:25.296 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-02-17 22:50:25.296 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-02-17 22:50:25.296 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:04:32.824 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-02-17 23:04:32.847 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-02-17 23:04:32.848 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-02-17 23:04:32.861 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:04:32.862 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-02-17 23:04:32.862 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-02-17 23:04:32.877 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:04:32.878 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-02-17 23:04:32.878 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:04:32.884 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-02-17 23:04:32.884 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-02-17 23:04:32.885 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:09:40.688 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-02-17 23:09:40.695 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-02-17 23:09:40.696 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-02-17 23:09:40.709 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:09:40.709 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-02-17 23:09:40.709 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-02-17 23:09:40.722 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:09:40.722 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-02-17 23:09:40.722 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:09:40.728 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-02-17 23:09:40.728 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-02-17 23:09:40.728 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:09:57.451 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-02-17 23:09:57.459 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:09:57.463 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-02-17 23:09:57.464 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:16:52.777 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-02-17 23:16:52.785 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-02-17 23:16:52.785 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-02-17 23:16:52.796 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:16:52.796 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-02-17 23:16:52.796 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-02-17 23:16:52.805 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:16:52.805 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-02-17 23:16:52.805 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:16:52.810 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-02-17 23:16:52.810 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-02-17 23:16:52.811 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:17:04.255 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-02-17 23:17:04.267 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:17:04.273 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-02-17 23:17:04.274 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:17:05.176 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.04
+2026-02-17 23:17:14.586 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.04
+2026-02-17 23:17:24.610 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.04
+2026-02-17 23:17:34.598 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.26
+2026-02-17 23:17:44.748 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.26
+2026-02-17 23:17:54.701 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.26
+2026-02-17 23:18:04.598 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.26
+2026-02-17 23:18:14.584 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.26
+2026-02-17 23:18:24.750 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.26
+2026-02-17 23:18:34.584 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.3
+2026-02-17 23:26:41.265 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-02-17 23:26:41.286 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-02-17 23:26:41.286 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-02-17 23:26:41.298 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:26:41.299 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-02-17 23:26:41.299 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-02-17 23:26:41.307 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:26:41.308 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-02-17 23:26:41.308 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:26:41.314 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-02-17 23:26:41.315 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-02-17 23:26:41.315 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:26:52.962 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-02-17 23:26:52.973 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-02-17 23:26:52.977 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-02-17 23:26:52.978 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-02-17 23:26:53.773 INFO  com.tradecore.engine.PriceUpdateListener - Market price updated: AAPL @ 261.62
+2026-02-17 23:26:53.773 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.62
+2026-02-17 23:27:03.316 INFO  com.tradecore.engine.PriceUpdateListener - Market price updated: AAPL @ 261.62
+2026-02-17 23:27:03.317 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.62
+2026-02-17 23:27:13.784 INFO  com.tradecore.engine.PriceUpdateListener - Market price updated: AAPL @ 261.62
+2026-02-17 23:27:13.784 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.62
+2026-02-17 23:27:23.319 INFO  com.tradecore.engine.PriceUpdateListener - Market price updated: AAPL @ 261.62
+2026-02-17 23:27:23.319 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.62
+2026-02-17 23:27:33.299 INFO  com.tradecore.engine.PriceUpdateListener - Market price updated: AAPL @ 261.62
+2026-02-17 23:27:33.300 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.62
+2026-02-17 23:27:43.304 INFO  com.tradecore.engine.PriceUpdateListener - Market price updated: AAPL @ 261.55
+2026-02-17 23:27:43.305 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 261.55
+2026-02-17 23:27:52.982 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-02-17 23:27:52.983 WARN  com.tradecore.marketdata.MarketDataService - Price fetch failed for AAPL
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:430)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2094)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:902)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.tradecore.marketdata.FinnhubRestClient.fetchPrice(FinnhubRestClient.java:62)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:52)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:41)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
