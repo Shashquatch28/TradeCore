@@ -16,19 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-/**
- * Central matching engine (Singleton).
- * Emits domain events for all significant state changes.
- */
 public class MatchingEngine {
-
-    /* ===================== SINGLETON ===================== */
-
-    private static final MatchingEngine INSTANCE = new MatchingEngine();
-
-    public static MatchingEngine getInstance() {
-        return INSTANCE;
-    }
 
     /* ===================== LOGGING ===================== */
 
@@ -54,7 +42,7 @@ public class MatchingEngine {
 
     /* ===================== CONSTRUCTOR ===================== */
 
-    private MatchingEngine() {
+    public MatchingEngine() {
         this.stockRegistry = new StockRegistry();
         this.priceUpdateListener = new PriceUpdateListener(stockRegistry);
 
@@ -80,6 +68,7 @@ public class MatchingEngine {
             com.tradecore.events.PriceTickEvent.class,
             new AutoMatchOnPriceListener(this)::onPriceTick
         );
+
     }
 
     /* ===================== CONFIG ===================== */
@@ -104,15 +93,31 @@ public class MatchingEngine {
                 order.getQuantity(),
                 order.getPrice()
         );
-
+    
         Stock stock = stockRegistry.getOrCreateStock(
                 order.getSymbol(),
                 order.getPrice()
         );
-
+    
         stock.getOrderBook().addOrder(order);
-
+    
         eventBus.publish(new OrderPlacedEvent(order));
+    
+        // Immediate matching
+        try {
+            List<Trade> trades = match(order.getSymbol());
+    
+            if (!trades.isEmpty()) {
+                log.info(
+                        "Immediate matching executed for symbol={} trades={}",
+                        order.getSymbol(),
+                        trades.size()
+                );
+            }
+    
+        } catch (Exception e) {
+            log.error("Matching failed on order submission symbol={}", order.getSymbol(), e);
+        }
     }
 
     public boolean cancelOrder(String orderId, String symbol) {

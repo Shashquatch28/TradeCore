@@ -18,7 +18,7 @@ public class EventFlowTest {
     @Test
     void tradeExecutedEvent_updatesTradeLedger() {
 
-        MatchingEngine engine = MatchingEngine.getInstance();
+        MatchingEngine engine = new MatchingEngine();
         engine.setMatchingStrategy(new FIFOMatchingStrategy());
 
         TradeLedger ledger = engine.getTradeLedger();

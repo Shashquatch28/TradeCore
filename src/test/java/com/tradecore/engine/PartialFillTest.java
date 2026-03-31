@@ -15,7 +15,7 @@ public class PartialFillTest {
     @Test
     void largeOrder_isPartiallyFilled() {
 
-        MatchingEngine engine = MatchingEngine.getInstance();
+        MatchingEngine engine = new MatchingEngine();
         engine.setMatchingStrategy(new FIFOMatchingStrategy());
 
         RetailTrader buyer = new RetailTrader("T1", "Alice", 100_000);

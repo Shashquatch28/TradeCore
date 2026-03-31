@@ -1,0 +1,3 @@
+com\tradecore\events\EventFlowTest.class
+com\tradecore\engine\MatchingEngineTest.class
+com\tradecore\engine\PartialFillTest.class

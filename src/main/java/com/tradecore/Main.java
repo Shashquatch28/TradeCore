@@ -26,7 +26,7 @@ public class Main {
 
         /* ===================== ENGINE ===================== */
 
-        MatchingEngine engine = MatchingEngine.getInstance();
+        MatchingEngine engine = new MatchingEngine();
         engine.setMatchingStrategy(new FIFOMatchingStrategy());
 
         /* ===================== WEBSOCKET SERVER ===================== */

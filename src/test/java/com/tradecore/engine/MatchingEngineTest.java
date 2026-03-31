@@ -22,7 +22,7 @@ class MatchingEngineTest {
 
     @BeforeEach
     void setup() {
-        engine = MatchingEngine.getInstance();
+        engine = new MatchingEngine();
         engine.setMatchingStrategy(new FIFOMatchingStrategy());
 
         buyer = new RetailTrader("B1", "Buyer", 100_000);
@@ -55,7 +55,7 @@ class MatchingEngineTest {
         engine.submitOrder(buyOrder);
         engine.submitOrder(sellOrder);
 
-        List<Trade> trades = engine.match("AAPL");
+        List<Trade> trades = engine.getTradeLedger().getAllTrades();
 
         assertEquals(1, trades.size());
 
@@ -93,7 +93,7 @@ class MatchingEngineTest {
         engine.submitOrder(buyOrder);
         engine.submitOrder(sellOrder);
 
-        List<Trade> trades = engine.match("TSLA");
+        List<Trade> trades = engine.getTradeLedger().getAllTrades();
 
         assertEquals(1, trades.size());
         assertEquals(100, trades.get(0).getQuantity());
