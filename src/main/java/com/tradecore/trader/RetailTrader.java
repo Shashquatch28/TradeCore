@@ -17,6 +17,7 @@ public class RetailTrader extends Trader {
         // handled by MatchingEngine
     }
 
+    @Override
     public Portfolio getPortfolio() {
         return portfolio;
     }

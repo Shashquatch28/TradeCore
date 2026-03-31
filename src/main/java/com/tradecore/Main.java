@@ -75,29 +75,52 @@ public class Main {
         );
 
         /* ===================== ORDERS ===================== */
+        try {
+                System.out.println("Waiting for UI to connect...");
+                Thread.sleep(5000); // 5 sec delay
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
 
-        Order buyOrder = OrderFactory.createOrder(
-                OrderType.LIMIT,
-                "O1",
-                "AAPL",
-                100,
-                OrderSide.BUY,
-                150.0,
-                alice
+            engine.getEventBus().subscribe(
+                PriceTickEvent.class,
+                new java.util.function.Consumer<>() {
+        
+                    private boolean executed = false;
+        
+                    @Override
+                    public void accept(PriceTickEvent event) {
+                        if (executed) return;
+        
+                        executed = true;
+        
+                        System.out.println("Placing orders AFTER first price tick...");
+        
+                        Order buyOrder = OrderFactory.createOrder(
+                                OrderType.LIMIT,
+                                "O1",
+                                "AAPL",
+                                100,
+                                OrderSide.BUY,
+                                150.0,
+                                alice
+                        );
+        
+                        Order sellOrder = OrderFactory.createOrder(
+                                OrderType.LIMIT,
+                                "O2",
+                                "AAPL",
+                                100,
+                                OrderSide.SELL,
+                                149.0,
+                                bob
+                        );
+        
+                        engine.submitOrder(buyOrder);
+                        engine.submitOrder(sellOrder);
+                    }
+                }
         );
-
-        Order sellOrder = OrderFactory.createOrder(
-                OrderType.LIMIT,
-                "O2",
-                "AAPL",
-                100,
-                OrderSide.SELL,
-                149.0,
-                bob
-        );
-
-        engine.submitOrder(buyOrder);
-        engine.submitOrder(sellOrder);
 
         /* ===================== PORTFOLIOS ===================== */
 

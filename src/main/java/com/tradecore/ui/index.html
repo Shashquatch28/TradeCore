@@ -76,15 +76,24 @@
     ws.onmessage = (event) => {
         const msg = JSON.parse(event.data);
 
-        // PriceTickEvent
-        if (msg.price) {
-            priceEl.textContent = msg.price.price.toFixed(2);
-            priceEl.className = "green";
+        console.log("WS MESSAGE:", msg); // 🔥 debug
+
+        // ================= PRICE =================
+        if (msg.type === "PRICE_TICK") {
+            const p = msg.price;
+
+            if (p && p.price !== undefined) {
+                priceEl.textContent = p.price.toFixed(2);
+                priceEl.className = "green";
+            }
         }
 
-        // TradeExecutedEvent
-        if (msg.trade) {
+        // ================= TRADE =================
+        if (msg.type === "TRADE_EXECUTED") {
             const t = msg.trade;
+
+            if (!t) return;
+
             const row = document.createElement("tr");
 
             row.innerHTML = `

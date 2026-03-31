@@ -37,6 +37,7 @@ com\tradecore\websocket\WsMessage.class
 com\tradecore\events\OrderCancelledEvent.class
 com\tradecore\websocket\WebSocketServer.class
 com\tradecore\events\TradeExecutedEvent.class
+com\tradecore\Main$1.class
 com\tradecore\marketdata\MarketDataProvider.class
 com\tradecore\engine\OrderFactory.class
 com\tradecore\model\MarketOrder.class

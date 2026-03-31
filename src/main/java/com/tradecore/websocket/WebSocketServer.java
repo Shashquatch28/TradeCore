@@ -3,6 +3,8 @@ package com.tradecore.websocket;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tradecore.events.PriceTickEvent;
 import com.tradecore.events.TradeExecutedEvent;
+import com.tradecore.websocket.dto.PriceDto;
+import com.tradecore.websocket.dto.TradeDto;
 import jakarta.websocket.*;
 import jakarta.websocket.server.ServerEndpoint;
 import org.glassfish.tyrus.server.Server;
@@ -22,7 +24,8 @@ public class WebSocketServer {
     private static final Set<Session> sessions =
             new CopyOnWriteArraySet<>();
 
-    private static final ObjectMapper mapper = new ObjectMapper();
+    private static final ObjectMapper mapper = new ObjectMapper()
+            .findAndRegisterModules();
 
     private Server server;
 
@@ -73,16 +76,33 @@ public class WebSocketServer {
     /* ===================== DOMAIN EVENT HANDLERS ===================== */
 
     public void handlePriceTick(PriceTickEvent event) {
+
+        PriceDto dto = new PriceDto(
+                event.getSymbol(),
+                event.getPrice()
+        );
+
         broadcast(Map.of(
                 "type", "PRICE_TICK",
-                "data", event.getPrice()
+                "price", dto   // 🔥 matches UI expectation
         ));
     }
 
     public void handleTradeExecuted(TradeExecutedEvent event) {
+
+        var trade = event.getTrade();
+
+        TradeDto dto = new TradeDto(
+                trade.getSymbol(),
+                trade.getQuantity(),
+                trade.getPrice(),
+                trade.getBuyerId(),
+                trade.getSellerId()
+        );
+
         broadcast(Map.of(
                 "type", "TRADE_EXECUTED",
-                "data", event.getTrade()
+                "trade", dto   // 🔥 matches UI expectation
         ));
     }
 

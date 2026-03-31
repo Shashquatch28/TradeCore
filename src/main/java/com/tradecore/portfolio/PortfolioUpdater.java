@@ -4,9 +4,11 @@ import com.tradecore.events.TradeExecutedEvent;
 import com.tradecore.model.Trade;
 import com.tradecore.registry.TraderRegistry;
 import com.tradecore.trader.Trader;
-import com.tradecore.trader.RetailTrader;
-import com.tradecore.trader.InstitutionalTrader;
 
+/**
+ * Updates trader portfolios upon trade execution.
+ * Uses polymorphism instead of instanceof checks.
+ */
 public class PortfolioUpdater {
 
     private final TraderRegistry traderRegistry;
@@ -22,8 +24,8 @@ public class PortfolioUpdater {
         Trader buyer = traderRegistry.getTrader(trade.getBuyerId());
         Trader seller = traderRegistry.getTrader(trade.getSellerId());
 
-        if (buyer instanceof RetailTrader rt) {
-            rt.getPortfolio().applyTrade(
+        if (buyer != null) {
+            buyer.getPortfolio().applyTrade(
                     trade.getSymbol(),
                     trade.getQuantity(),
                     trade.getPrice(),
@@ -31,26 +33,8 @@ public class PortfolioUpdater {
             );
         }
 
-        if (buyer instanceof InstitutionalTrader it) {
-            it.getPortfolio().applyTrade(
-                    trade.getSymbol(),
-                    trade.getQuantity(),
-                    trade.getPrice(),
-                    true
-            );
-        }
-
-        if (seller instanceof RetailTrader rt) {
-            rt.getPortfolio().applyTrade(
-                    trade.getSymbol(),
-                    trade.getQuantity(),
-                    trade.getPrice(),
-                    false
-            );
-        }
-
-        if (seller instanceof InstitutionalTrader it) {
-            it.getPortfolio().applyTrade(
+        if (seller != null) {
+            seller.getPortfolio().applyTrade(
                     trade.getSymbol(),
                     trade.getQuantity(),
                     trade.getPrice(),

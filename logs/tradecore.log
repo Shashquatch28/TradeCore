@@ -42,3 +42,250 @@
 2026-03-31 21:35:07.563 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
 2026-03-31 21:35:07.564 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
 2026-03-31 21:35:07.564 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:40:33.151 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-03-31 21:40:33.165 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-03-31 21:40:33.166 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-03-31 21:40:33.167 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=TSLA trades=1
+2026-03-31 21:40:33.186 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 21:40:33.187 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-03-31 21:40:33.187 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-03-31 21:40:33.187 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:40:33.202 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 21:40:33.202 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-03-31 21:40:33.203 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-03-31 21:40:33.203 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:40:33.210 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-03-31 21:40:33.210 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-03-31 21:40:33.210 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-03-31 21:40:33.210 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:40:46.404 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-03-31 21:40:46.504 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-03-31 21:40:46.517 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 21:40:46.522 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-03-31 21:40:46.523 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-03-31 21:40:46.637 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:40:47.805 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.61
+2026-03-31 21:40:47.812 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.61
+2026-03-31 21:40:56.931 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.61
+2026-03-31 21:40:56.934 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.61
+2026-03-31 21:41:06.848 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.61
+2026-03-31 21:41:06.849 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.61
+2026-03-31 21:41:16.900 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.61
+2026-03-31 21:41:16.902 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.61
+2026-03-31 21:41:26.799 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.61
+2026-03-31 21:41:26.800 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.61
+2026-03-31 21:41:37.019 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.55
+2026-03-31 21:41:37.020 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.55
+2026-03-31 21:41:46.640 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-03-31 21:41:46.647 WARN  com.tradecore.marketdata.MarketDataService - Price fetch failed for AAPL
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:430)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2094)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:902)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.tradecore.marketdata.FinnhubRestClient.fetchPrice(FinnhubRestClient.java:62)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:55)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-03-31 21:41:46.742 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
+2026-03-31 21:45:30.954 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-03-31 21:45:31.316 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-03-31 21:45:31.332 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 21:45:31.341 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-03-31 21:45:31.343 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-03-31 21:45:31.449 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:45:32.684 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.46
+2026-03-31 21:45:32.693 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.46
+2026-03-31 21:45:33.006 INFO  com.tradecore.websocket.WebSocketServer - WebSocket connected: be06a262-64fc-44bd-9263-41976f9da3de
+2026-03-31 21:45:41.623 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.49
+2026-03-31 21:45:41.638 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.49
+2026-03-31 21:45:51.610 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.49
+2026-03-31 21:45:51.612 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.49
+2026-03-31 21:46:01.683 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.49
+2026-03-31 21:46:01.686 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.49
+2026-03-31 21:46:10.449 INFO  com.tradecore.websocket.WebSocketServer - WebSocket disconnected: be06a262-64fc-44bd-9263-41976f9da3de
+2026-03-31 21:46:10.494 INFO  com.tradecore.websocket.WebSocketServer - WebSocket connected: 16ea3aa4-e35d-4343-90e3-24fa0ad6a173
+2026-03-31 21:46:11.644 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.49
+2026-03-31 21:46:11.648 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.49
+2026-03-31 21:46:21.608 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.49
+2026-03-31 21:46:21.612 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.49
+2026-03-31 21:46:31.469 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-03-31 21:46:31.477 INFO  com.tradecore.websocket.WebSocketServer - WebSocket disconnected: 16ea3aa4-e35d-4343-90e3-24fa0ad6a173
+2026-03-31 21:46:31.473 WARN  com.tradecore.marketdata.MarketDataService - Price fetch failed for AAPL
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:430)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2094)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:902)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.tradecore.marketdata.FinnhubRestClient.fetchPrice(FinnhubRestClient.java:62)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:55)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-03-31 21:46:31.489 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
+2026-03-31 21:47:02.863 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-03-31 21:47:03.222 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-03-31 21:47:03.237 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 21:47:03.246 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-03-31 21:47:03.270 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-03-31 21:47:03.402 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:47:04.735 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.57
+2026-03-31 21:47:04.743 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.57
+2026-03-31 21:47:09.769 INFO  com.tradecore.websocket.WebSocketServer - WebSocket connected: 43328fef-b6c8-488c-b46e-908a9cda8561
+2026-03-31 21:47:10.344 INFO  com.tradecore.websocket.WebSocketServer - WebSocket disconnected: 43328fef-b6c8-488c-b46e-908a9cda8561
+2026-03-31 21:47:10.373 INFO  com.tradecore.websocket.WebSocketServer - WebSocket connected: 48dde4fd-ac7b-4c4f-9a90-5e1b8ed64171
+2026-03-31 21:47:13.675 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.57
+2026-03-31 21:47:13.681 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.57
+2026-03-31 21:47:23.600 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.57
+2026-03-31 21:47:23.603 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.57
+2026-03-31 21:47:33.567 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.75
+2026-03-31 21:47:33.570 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.75
+2026-03-31 21:47:43.555 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.75
+2026-03-31 21:47:43.558 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.75
+2026-03-31 21:47:53.621 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.75
+2026-03-31 21:47:53.624 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.75
+2026-03-31 21:48:03.412 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-03-31 21:48:03.423 INFO  com.tradecore.websocket.WebSocketServer - WebSocket disconnected: 48dde4fd-ac7b-4c4f-9a90-5e1b8ed64171
+2026-03-31 21:48:03.416 WARN  com.tradecore.marketdata.MarketDataService - Price fetch failed for AAPL
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:430)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2094)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:902)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.tradecore.marketdata.FinnhubRestClient.fetchPrice(FinnhubRestClient.java:62)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:55)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-03-31 21:48:03.431 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
+2026-03-31 21:51:10.346 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-03-31 21:51:10.749 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-03-31 21:51:10.761 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 21:51:10.772 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-03-31 21:51:10.775 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-03-31 21:51:10.885 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:51:12.107 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.73
+2026-03-31 21:51:12.115 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.73
+2026-03-31 21:51:21.046 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=249.73
+2026-03-31 21:51:21.047 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 249.73
+2026-03-31 21:51:31.016 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.02
+2026-03-31 21:51:31.019 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.02
+2026-03-31 21:51:41.014 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.02
+2026-03-31 21:51:41.015 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.02
+2026-03-31 21:51:51.694 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.02
+2026-03-31 21:51:51.696 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.02
+2026-03-31 21:52:01.133 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.02
+2026-03-31 21:52:01.135 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.02
+2026-03-31 21:52:10.896 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-03-31 21:52:10.899 WARN  com.tradecore.marketdata.MarketDataService - Price fetch failed for AAPL
+java.lang.InterruptedException: null
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:430)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2094)
+	at java.net.http/jdk.internal.net.http.HttpClientImpl.send(HttpClientImpl.java:902)
+	at java.net.http/jdk.internal.net.http.HttpClientFacade.send(HttpClientFacade.java:133)
+	at com.tradecore.marketdata.FinnhubRestClient.fetchPrice(FinnhubRestClient.java:62)
+	at com.tradecore.marketdata.MarketDataService.poll(MarketDataService.java:55)
+	at com.tradecore.marketdata.MarketDataService.lambda$start$0(MarketDataService.java:44)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+2026-03-31 21:52:10.937 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
+2026-03-31 21:55:02.935 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-03-31 21:55:03.203 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-03-31 21:55:04.695 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.22
+2026-03-31 21:55:08.231 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 21:55:08.241 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-03-31 21:55:08.244 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-03-31 21:55:08.252 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:55:11.687 INFO  com.tradecore.websocket.WebSocketServer - WebSocket connected: c1a19488-1243-4df6-a040-d1bebada4c7e
+2026-03-31 21:55:13.562 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.22
+2026-03-31 21:55:13.575 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.22
+2026-03-31 21:55:23.495 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.22
+2026-03-31 21:55:23.498 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.22
+2026-03-31 21:55:33.709 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.57
+2026-03-31 21:55:33.711 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.57
+2026-03-31 21:55:43.581 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.57
+2026-03-31 21:55:43.583 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.57
+2026-03-31 21:55:53.513 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.57
+2026-03-31 21:55:53.515 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.57
+2026-03-31 21:56:03.520 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.57
+2026-03-31 21:56:03.523 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.57
+2026-03-31 21:56:08.259 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-03-31 21:56:08.275 INFO  com.tradecore.websocket.WebSocketServer - WebSocket disconnected: c1a19488-1243-4df6-a040-d1bebada4c7e
+2026-03-31 21:56:08.283 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
+2026-03-31 21:57:26.442 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-03-31 21:57:26.803 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-03-31 21:57:28.470 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.65
+2026-03-31 21:57:31.078 INFO  com.tradecore.websocket.WebSocketServer - WebSocket connected: 6d91c657-6711-47cf-9e2d-288b3666ee44
+2026-03-31 21:57:37.143 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 21:57:37.150 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-03-31 21:57:37.153 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-03-31 21:57:37.166 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 21:57:37.167 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.65
+2026-03-31 21:57:47.250 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.37
+2026-03-31 21:57:47.258 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.37
+2026-03-31 21:57:57.281 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.37
+2026-03-31 21:57:57.285 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.37
+2026-03-31 21:58:07.314 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.37
+2026-03-31 21:58:07.317 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.37
+2026-03-31 21:58:17.104 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.37
+2026-03-31 21:58:17.107 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.37
+2026-03-31 21:58:27.127 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=250.16
+2026-03-31 21:58:27.135 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.16
+2026-03-31 21:58:31.869 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-03-31 21:58:31.884 INFO  com.tradecore.websocket.WebSocketServer - WebSocket disconnected: 6d91c657-6711-47cf-9e2d-288b3666ee44
+2026-03-31 21:58:31.893 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
+2026-03-31 22:09:08.854 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
+2026-03-31 22:09:08.888 INFO  com.tradecore.websocket.WebSocketServer - WebSocket connected: 9c89f97f-384f-49e9-90cf-0d5d96134a07
+2026-03-31 22:09:09.018 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
+2026-03-31 22:09:11.302 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 250.71
+2026-03-31 22:09:19.719 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 22:09:19.734 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
+2026-03-31 22:09:19.736 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
+2026-03-31 22:09:19.747 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 22:09:19.748 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 251.22
+2026-03-31 22:09:29.531 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=251.22
+2026-03-31 22:09:29.534 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 251.22
+2026-03-31 22:09:39.352 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=251.22
+2026-03-31 22:09:39.356 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 251.22
+2026-03-31 22:09:49.333 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=251.22
+2026-03-31 22:09:49.336 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 251.22
+2026-03-31 22:09:59.419 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=251.22
+2026-03-31 22:09:59.426 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 251.22
+2026-03-31 22:10:09.675 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=251.22
+2026-03-31 22:10:09.677 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 251.22
+2026-03-31 22:10:14.038 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
+2026-03-31 22:10:14.055 INFO  com.tradecore.websocket.WebSocketServer - WebSocket disconnected: 9c89f97f-384f-49e9-90cf-0d5d96134a07
+2026-03-31 22:10:14.063 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
+2026-03-31 22:19:52.793 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-03-31 22:19:52.874 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-03-31 22:19:52.875 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-03-31 22:19:52.876 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=TSLA trades=1
+2026-03-31 22:19:52.899 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 22:19:52.900 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-03-31 22:19:52.900 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-03-31 22:19:52.901 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 22:19:52.914 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-03-31 22:19:52.914 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-03-31 22:19:52.914 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-03-31 22:19:52.914 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1
+2026-03-31 22:19:52.923 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-03-31 22:19:52.924 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-03-31 22:19:52.924 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-03-31 22:19:52.924 INFO  com.tradecore.engine.MatchingEngine - Immediate matching executed for symbol=AAPL trades=1

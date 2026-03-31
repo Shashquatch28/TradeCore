@@ -1,2 +1,27 @@
 # API keys
 src/main/resources/application.properties
+
+# Maven / Java build artifacts
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+logs/
+*.log
+hs_err_pid*.log
+replay_pid*.log
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db

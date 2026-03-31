@@ -2,6 +2,7 @@ package com.tradecore.trader;
 
 import com.tradecore.events.TradeExecutedEvent;
 import com.tradecore.model.Order;
+import com.tradecore.model.Portfolio;
 
 /**
  * Base class for all traders.
@@ -20,8 +21,12 @@ public abstract class Trader {
     public abstract void placeOrder(Order order);
 
     /**
+     * 🔥 NEW: Enforce portfolio access via abstraction
+     */
+    public abstract Portfolio getPortfolio();
+
+    /**
      * Event handler hook.
-     * Subclasses may override if they need to react to trades.
      */
     public void onTradeExecuted(TradeExecutedEvent event) {
         // default: no-op

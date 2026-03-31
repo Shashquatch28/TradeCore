@@ -17,6 +17,7 @@ public class InstitutionalTrader extends Trader {
         // handled by MatchingEngine
     }
 
+    @Override
     public Portfolio getPortfolio() {
         return portfolio;
     }
