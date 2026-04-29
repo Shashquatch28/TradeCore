@@ -1,8 +1,8 @@
 package com.tradecore.config;
 
 import com.tradecore.engine.MatchingEngine;
+import com.tradecore.events.EventBus;
 import com.tradecore.strategy.FIFOMatchingStrategy;
-import com.tradecore.persistence.TradePersistenceListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,16 +10,9 @@ import org.springframework.context.annotation.Configuration;
 public class EngineConfig {
 
     @Bean
-    public MatchingEngine matchingEngine(TradePersistenceListener listener) {
-
-       MatchingEngine engine = new MatchingEngine();
-       engine.setMatchingStrategy(new FIFOMatchingStrategy());
-
-        engine.getEventBus().subscribe(
-            com.tradecore.events.TradeExecutedEvent.class,
-                listener::onTradeExecuted
-        );
-
+    public MatchingEngine matchingEngine(EventBus eventBus) {
+        MatchingEngine engine = new MatchingEngine(eventBus);
+        engine.setMatchingStrategy(new FIFOMatchingStrategy());
         return engine;
     }
 }

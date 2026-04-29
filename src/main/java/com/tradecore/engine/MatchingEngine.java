@@ -19,7 +19,7 @@ public class MatchingEngine {
     private final StockRegistry stockRegistry;
     private MatchingStrategy matchingStrategy;
 
-    private final EventBus eventBus = new EventBus();
+    private final EventBus eventBus;
     private final TradeLedger tradeLedger = new TradeLedger();
     private final EventMetricsListener metrics = new EventMetricsListener();
     private final PriceUpdateListener priceUpdateListener;
@@ -27,7 +27,17 @@ public class MatchingEngine {
     // 🔥 NEW: Stop-loss storage
     private final List<StopLossOrder> stopOrders = new ArrayList<>();
 
+    /** Tests and standalone use; uses an isolated {@link EventBus}. */
     public MatchingEngine() {
+        this(new EventBus());
+    }
+
+    /**
+     * Application use: share the Spring {@link EventBus} so trade and price events
+     * reach persistence, portfolio updates, and market data subscribers.
+     */
+    public MatchingEngine(EventBus eventBus) {
+        this.eventBus = eventBus;
         this.stockRegistry = new StockRegistry();
         this.priceUpdateListener = new PriceUpdateListener(stockRegistry);
 
@@ -173,6 +183,7 @@ public class MatchingEngine {
 
             log.info("Market trade executed: {}", trade);
             eventBus.publish(new TradeExecutedEvent(trade));
+            System.out.println("TradeExecutedEvent published");
         }
     }
 

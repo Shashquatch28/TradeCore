@@ -18,11 +18,6 @@
     --red: #ef4444;
 }
 
-* {
-    box-sizing: border-box;
-    transition: all 0.2s ease;
-}
-
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -30,7 +25,6 @@ body {
     color: var(--text);
 }
 
-/* LAYOUT */
 .container {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -38,7 +32,6 @@ body {
     padding: 30px;
 }
 
-/* SIDEBAR */
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -51,27 +44,11 @@ body {
     border: 1px solid var(--border);
     border-radius: 18px;
     padding: 18px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
-}
+h1 { color: var(--accent); }
+h2 { color: var(--muted); }
 
-h1 {
-    font-size: 26px;
-    margin-bottom: 10px;
-    color: var(--accent);
-}
-
-h2 {
-    font-size: 16px;
-    color: var(--muted);
-    margin-bottom: 12px;
-}
-
-/* INPUTS */
 input, select {
     width: 100%;
     padding: 10px;
@@ -82,12 +59,6 @@ input, select {
     margin-bottom: 10px;
 }
 
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--accent);
-}
-
-/* BUTTONS */
 button {
     padding: 10px;
     border-radius: 10px;
@@ -98,11 +69,6 @@ button {
 
 .btn-primary {
     background: linear-gradient(135deg, #4cc9f0, #4895ef);
-    color: black;
-}
-
-.btn-primary:hover {
-    transform: scale(1.05);
 }
 
 .btn-sell {
@@ -110,48 +76,34 @@ button {
     color: white;
 }
 
-.btn-sell:hover {
-    transform: scale(1.05);
-}
-
-/* MAIN PANEL */
 .main {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-/* PRICE */
 .price-box {
     font-size: 22px;
-    font-weight: 600;
 }
 
-.price-up { color: var(--green); }
-.price-down { color: var(--red); }
+.status {
+    margin-top: 10px;
+    font-size: 13px;
+}
 
-/* TABLE */
+.status.success { color: var(--green); }
+.status.error { color: var(--red); }
+
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-th {
-    text-align: left;
-    font-size: 13px;
-    color: var(--muted);
+th, td {
     padding: 10px;
+    border-bottom: 1px solid var(--border);
 }
 
-td {
-    padding: 10px;
-    border-top: 1px solid var(--border);
-}
-
-/* HOVER ROW */
-tr:hover {
-    background: rgba(255,255,255,0.03);
-}
 </style>
 </head>
 
@@ -170,6 +122,7 @@ tr:hover {
 <h2>Create User</h2>
 <input id="userId" placeholder="Trader ID">
 <button class="btn-primary" onclick="createUser()">Create</button>
+<div id="userStatus" class="status"></div>
 </div>
 
 <div class="card">
@@ -193,13 +146,17 @@ $ <span id="price">--</span>
 
 <button class="btn-primary" onclick="placeOrder('BUY')">BUY</button>
 <button class="btn-sell" onclick="placeOrder('SELL')">SELL</button>
+
+<div id="orderStatus" class="status"></div>
 </div>
 
 <div class="card">
 <h2>Portfolio</h2>
 <input id="portfolioId" placeholder="Trader ID">
 <button class="btn-primary" onclick="loadPortfolio()">Load</button>
-<pre id="portfolioOutput"></pre>
+
+<div id="portfolioOutput"></div>
+<div id="portfolioStatus" class="status"></div>
 </div>
 
 </div>
@@ -258,32 +215,45 @@ ws.onmessage = (event) => {
         row.innerHTML = `
             <td>${t.symbol}</td>
             <td>${t.quantity}</td>
-            <td>${t.price}</td>
-            <td>${t.buyerId}</td>
-            <td>${t.sellerId}</td>
+            <td>$${t.price.toFixed(2)}</td>
+            <td style="color:#22c55e">${t.buyerId}</td>
+            <td style="color:#ef4444">${t.sellerId}</td>
         `;
 
         document.getElementById("trades").prepend(row);
     }
 };
 
+// ================= USER =================
+
 async function createUser() {
     const id = document.getElementById("userId").value;
 
-    await fetch('/users/create', {
+    const res = await fetch('/users/create', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ id })
     });
 
-    alert("User created");
+    const status = document.getElementById("userStatus");
+
+    if (!res.ok) {
+        const data = await res.json();
+        status.textContent = data.error;
+        status.className = "status error";
+    } else {
+        status.textContent = "User created successfully";
+        status.className = "status success";
+    }
 }
+
+// ================= ORDER =================
 
 async function placeOrder(side) {
     const quantity = parseInt(document.getElementById("quantity").value);
     const traderId = document.getElementById("traderId").value;
 
-    await fetch('/orders/market', {
+    const res = await fetch('/orders/market', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -294,17 +264,58 @@ async function placeOrder(side) {
         })
     });
 
-    alert(side + " order placed");
+    const status = document.getElementById("orderStatus");
+
+    if (!res.ok) {
+        const data = await res.json();
+        status.textContent = data.error;
+        status.className = "status error";
+    } else {
+        status.textContent = side + " order placed successfully";
+        status.className = "status success";
+    }
 }
+
+// ================= PORTFOLIO =================
 
 async function loadPortfolio() {
     const id = document.getElementById("portfolioId").value;
 
     const res = await fetch(`/portfolio/${id}`);
+    const status = document.getElementById("portfolioStatus");
+
+    if (!res.ok) {
+        const data = await res.json();
+        status.textContent = data.error;
+        status.className = "status error";
+        return;
+    }
+
     const data = await res.json();
 
-    document.getElementById("portfolioOutput").textContent =
-        JSON.stringify(data, null, 2);
+    let html = `
+        <strong>Cash:</strong> $${data.cashBalance.toFixed(2)}<br><br>
+        <strong>Holdings:</strong><br>
+    `;
+
+    const positions = data.positions;
+
+    if (Object.keys(positions).length === 0) {
+        html += `<span style="color:#94a3b8">No holdings</span>`;
+    } else {
+        for (let sym in positions) {
+            html += `
+                <div style="display:flex;justify-content:space-between">
+                    <span>${sym}</span>
+                    <span>${positions[sym]} shares</span>
+                </div>
+            `;
+        }
+    }
+
+    document.getElementById("portfolioOutput").innerHTML = html;
+    status.textContent = "Portfolio loaded";
+    status.className = "status success";
 }
 
 </script>

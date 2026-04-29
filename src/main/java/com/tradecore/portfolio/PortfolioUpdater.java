@@ -4,11 +4,6 @@ import com.tradecore.events.TradeExecutedEvent;
 import com.tradecore.model.Trade;
 import com.tradecore.registry.TraderRegistry;
 import com.tradecore.trader.Trader;
-
-/**
- * Updates trader portfolios upon trade execution.
- * Uses polymorphism instead of instanceof checks.
- */
 public class PortfolioUpdater {
 
     private final TraderRegistry traderRegistry;

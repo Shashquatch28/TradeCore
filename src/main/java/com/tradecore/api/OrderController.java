@@ -7,6 +7,8 @@ import com.tradecore.model.*;
 import com.tradecore.trader.Trader;
 import com.tradecore.registry.TraderRegistry;
 import org.springframework.web.bind.annotation.*;
+import com.tradecore.exception.TraderNotFoundException;
+import com.tradecore.enums.OrderSide;
 
 import java.util.UUID;
 
@@ -26,18 +28,18 @@ public class OrderController {
     @PostMapping("/market")
     public String placeMarket(@RequestBody MarketOrderRequest req) {
 
-        // ✅ Get existing trader
+        // Get existing trader
         Trader trader = traderRegistry.getTrader(req.traderId);
 
         if (trader == null) {
-            return "Trader not found. Create user first.";
+            throw new TraderNotFoundException(req.traderId);
         }
 
         MarketOrder order = new MarketOrder(
                 UUID.randomUUID().toString(),
                 req.symbol,
                 req.quantity,
-                req.side,
+                OrderSide.valueOf(req.side.toUpperCase()),
                 trader
         );
 
@@ -56,13 +58,13 @@ public class OrderController {
         }
 
         LimitOrder order = new LimitOrder(
-                UUID.randomUUID().toString(),
-                req.symbol,
-                req.quantity,
-                req.side,
-                req.price,
-                trader
-        );
+            UUID.randomUUID().toString(),
+            req.symbol,
+            req.quantity,
+            OrderSide.valueOf(req.side.toUpperCase()), 
+            req.price,                                   
+            trader
+    );
 
         engine.submitOrder(order);
 

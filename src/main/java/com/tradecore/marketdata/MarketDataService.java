@@ -84,7 +84,7 @@ public class MarketDataService {
     }
 
     /**
-     * 🔥 Random-walk simulation for fallback
+     * Random-walk simulation for fallback
      */
     private double simulatePrice(String symbol) {
 
