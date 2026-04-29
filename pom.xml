@@ -5,13 +5,21 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- SPRING BOOT PARENT -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.2</version>
+        <relativePath/>
+    </parent>
+
     <groupId>com.tradecore</groupId>
     <artifactId>tradecore</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <!-- ===================== PROPERTIES ===================== -->
     <properties>
-        <maven.compiler.release>17</maven.compiler.release>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <junit.version>5.10.2</junit.version>
@@ -24,6 +32,12 @@
 
     <!-- ===================== DEPENDENCIES ===================== -->
     <dependencies>
+
+        <!-- SPRING BOOT WEB -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
         <!-- ===================== TESTING ===================== -->
         <dependency>
@@ -53,40 +67,35 @@
             <version>${jackson.version}</version>
         </dependency>
 
-        <!-- ===================== JAKARTA WEBSOCKET API ===================== -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- ===================== WEBSOCKET ===================== -->
         <dependency>
             <groupId>jakarta.websocket</groupId>
             <artifactId>jakarta.websocket-api</artifactId>
             <version>${jakarta.websocket.version}</version>
         </dependency>
 
-        <!-- ===================== TYRUS SERVER ===================== -->
         <dependency>
             <groupId>org.glassfish.tyrus</groupId>
             <artifactId>tyrus-server</artifactId>
             <version>${tyrus.version}</version>
         </dependency>
 
-        <!-- ===================== TYRUS GRIZZLY CONTAINER ===================== -->
         <dependency>
             <groupId>org.glassfish.tyrus</groupId>
             <artifactId>tyrus-container-grizzly-server</artifactId>
             <version>${tyrus.version}</version>
         </dependency>
 
-        <!-- Optional: Tyrus Client -->
         <dependency>
             <groupId>org.glassfish.tyrus</groupId>
             <artifactId>tyrus-client</artifactId>
             <version>${tyrus.version}</version>
-        </dependency>
-
-        <!-- ===================== JACKSON TIME MODULE ===================== -->
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
 
     </dependencies>
@@ -95,31 +104,16 @@
     <build>
         <plugins>
 
-            <!-- Java 17 compiler -->
+            <!--  SPRING BOOT PLUGIN -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
-                <configuration>
-                    <release>${maven.compiler.release}</release>
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- Run Main class -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <mainClass>com.tradecore.Main</mainClass>
-                </configuration>
-            </plugin>
-
-            <!-- JUnit 5 -->
+            <!-- JUnit -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.5</version>
             </plugin>
 
         </plugins>

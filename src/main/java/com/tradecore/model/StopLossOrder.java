@@ -1,5 +1,6 @@
 package com.tradecore.model;
 
+import com.tradecore.engine.MatchingEngine;
 import com.tradecore.enums.OrderSide;
 import com.tradecore.trader.Trader;
 
@@ -18,13 +19,18 @@ public class StopLossOrder extends Order {
         this.stopPrice = stopPrice;
     }
 
-    public void trigger() {
-        // Convert to market order when stop price is hit
+    @Override
+    public void process(MatchingEngine engine, Stock stock) {
+        engine.registerStopLossOrder(this);
+    }
+
+    public double getStopPrice() {
+        return stopPrice;
     }
 
     @Override
     public void execute() {
-        // Execution handled by MatchingEngine
+        // Execution handled by MatchingEngine after trigger
     }
 
     @Override

@@ -1,9 +1,9 @@
 package com.tradecore.model;
 
+import com.tradecore.engine.MatchingEngine;
 import com.tradecore.enums.OrderSide;
 import com.tradecore.enums.OrderStatus;
 import com.tradecore.trader.Trader;
-
 
 public abstract class Order implements Tradeable {
 
@@ -22,6 +22,9 @@ public abstract class Order implements Tradeable {
         this.status = OrderStatus.PENDING;
         this.trader = trader;
     }
+
+    // Polymorphic execution entry point
+    public abstract void process(MatchingEngine engine, Stock stock);
 
     public abstract void execute();
 
@@ -45,7 +48,7 @@ public abstract class Order implements Tradeable {
     public int getQuantity() {
         return quantity;
     }
-    
+
     public String getOrderId() {
         return orderId;
     }
@@ -54,9 +57,9 @@ public abstract class Order implements Tradeable {
         if (amount <= 0 || amount > quantity) {
             throw new IllegalArgumentException("Invalid reduction amount");
         }
-    
+
         quantity -= amount;
-    
+
         if (quantity == 0) {
             status = OrderStatus.FILLED;
         } else {

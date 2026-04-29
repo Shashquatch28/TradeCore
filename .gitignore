@@ -25,3 +25,9 @@ replay_pid*.log
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local architecture notes
+ARCHITECTURE-CONTEXT.MD
+
+# Local run/output scratch files
+output.txt

@@ -1,77 +1,45 @@
 package com.tradecore.engine;
 
-import com.tradecore.events.EventBus;
-import com.tradecore.events.OrderPlacedEvent;
-import com.tradecore.events.OrderCancelledEvent;
-import com.tradecore.events.TradeExecutedEvent;
-import com.tradecore.events.PriceTickEvent;
-import com.tradecore.model.Order;
-import com.tradecore.model.Stock;
-import com.tradecore.model.Trade;
+import com.tradecore.events.*;
+import com.tradecore.model.*;
 import com.tradecore.observer.TradeLedger;
 import com.tradecore.strategy.MatchingStrategy;
 import com.tradecore.metrics.EventMetricsListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MatchingEngine {
 
-    /* ===================== LOGGING ===================== */
-
     private static final Logger log =
             LoggerFactory.getLogger(MatchingEngine.class);
-
-    /* ===================== CORE STATE ===================== */
 
     private final StockRegistry stockRegistry;
     private MatchingStrategy matchingStrategy;
 
-    // Event-driven core
     private final EventBus eventBus = new EventBus();
-
-    // Read model
     private final TradeLedger tradeLedger = new TradeLedger();
-
-    // Metrics
     private final EventMetricsListener metrics = new EventMetricsListener();
-
-    // Market price listener
     private final PriceUpdateListener priceUpdateListener;
 
-    /* ===================== CONSTRUCTOR ===================== */
+    // 🔥 NEW: Stop-loss storage
+    private final List<StopLossOrder> stopOrders = new ArrayList<>();
 
     public MatchingEngine() {
         this.stockRegistry = new StockRegistry();
         this.priceUpdateListener = new PriceUpdateListener(stockRegistry);
 
-        // Trade ledger listener
-        eventBus.subscribe(
-                TradeExecutedEvent.class,
-                tradeLedger::onTradeExecuted
-        );
+        eventBus.subscribe(TradeExecutedEvent.class, tradeLedger::onTradeExecuted);
+        eventBus.subscribe(TradeExecutedEvent.class, metrics::onTradeExecuted);
+        eventBus.subscribe(PriceTickEvent.class, priceUpdateListener::onPriceTick);
+        eventBus.subscribe(PriceTickEvent.class,
+                new AutoMatchOnPriceListener(this)::onPriceTick);
 
-        // Metrics listener
-        eventBus.subscribe(
-                TradeExecutedEvent.class,
-                metrics::onTradeExecuted
-        );
-
-        // Market price updates
-        eventBus.subscribe(
-                PriceTickEvent.class,
-                priceUpdateListener::onPriceTick
-        );
-        // Auto match on price tick
-        eventBus.subscribe(
-            com.tradecore.events.PriceTickEvent.class,
-            new AutoMatchOnPriceListener(this)::onPriceTick
-        );
-
+        // 🔥 NEW: Stop-loss trigger listener
+        eventBus.subscribe(PriceTickEvent.class, this::handleStopLoss);
     }
-
-    /* ===================== CONFIG ===================== */
 
     public void setMatchingStrategy(MatchingStrategy strategy) {
         this.matchingStrategy = strategy;
@@ -85,6 +53,12 @@ public class MatchingEngine {
 
     public void submitOrder(Order order) {
 
+        // 🔥 Minimal validation
+        if (order.getQuantity() <= 0) {
+            log.warn("Invalid order rejected: {}", order.getOrderId());
+            return;
+        }
+
         log.info(
                 "Order submitted: id={}, symbol={}, side={}, qty={}, price={}",
                 order.getOrderId(),
@@ -93,57 +67,113 @@ public class MatchingEngine {
                 order.getQuantity(),
                 order.getPrice()
         );
-    
+
         Stock stock = stockRegistry.getOrCreateStock(
                 order.getSymbol(),
                 order.getPrice()
         );
-    
-        stock.getOrderBook().addOrder(order);
-    
-        eventBus.publish(new OrderPlacedEvent(order));
-    
-        // Immediate matching
-        try {
-            List<Trade> trades = match(order.getSymbol());
-    
-            if (!trades.isEmpty()) {
-                log.info(
-                        "Immediate matching executed for symbol={} trades={}",
-                        order.getSymbol(),
-                        trades.size()
-                );
+
+        order.process(this, stock);
+    }
+
+    /* ===================== STOP LOSS ===================== */
+
+    public void registerStopLossOrder(StopLossOrder order) {
+        stopOrders.add(order);
+    }
+
+    private void handleStopLoss(PriceTickEvent event) {
+
+        double currentPrice = event.getPrice();
+        String symbol = event.getSymbol();
+
+        List<StopLossOrder> triggered = new ArrayList<>();
+
+        for (StopLossOrder order : stopOrders) {
+
+            if (!order.getSymbol().equals(symbol)) continue;
+
+            boolean shouldTrigger =
+                    (order.getSide() == com.tradecore.enums.OrderSide.SELL && currentPrice <= order.getStopPrice()) ||
+                    (order.getSide() == com.tradecore.enums.OrderSide.BUY && currentPrice >= order.getStopPrice());
+
+            if (shouldTrigger) {
+                triggered.add(order);
             }
-    
-        } catch (Exception e) {
-            log.error("Matching failed on order submission symbol={}", order.getSymbol(), e);
+        }
+
+        for (StopLossOrder order : triggered) {
+
+            stopOrders.remove(order);
+
+            log.info("Stop-loss triggered: {}", order.getOrderId());
+
+            MarketOrder marketOrder = new MarketOrder(
+                    order.getOrderId(),
+                    order.getSymbol(),
+                    order.getQuantity(),
+                    order.getSide(),
+                    order.getTrader()
+            );
+
+            submitOrder(marketOrder);
         }
     }
 
-    public boolean cancelOrder(String orderId, String symbol) {
+    /* ===================== MARKET ORDER LOGIC ===================== */
 
-        Stock stock = stockRegistry.getStock(symbol);
-        if (stock == null) {
-            log.warn("Cancel failed: stock not found symbol={}", symbol);
-            return false;
+    public void processMarketOrder(Order order, Stock stock) {
+
+        var orderBook = stock.getOrderBook();
+
+        while (order.getQuantity() > 0) {
+
+            Order bestOpposite =
+                    order.getSide() == com.tradecore.enums.OrderSide.BUY
+                            ? orderBook.getBestSell()
+                            : orderBook.getBestBuy();
+
+            if (bestOpposite == null) {
+                log.warn("Market order cannot be filled: no liquidity symbol={}", order.getSymbol());
+                return;
+            }
+
+            int tradeQty = Math.min(order.getQuantity(), bestOpposite.getQuantity());
+            double tradePrice = bestOpposite.getPrice();
+
+            String buyerId;
+            String sellerId;
+
+            if (order.getSide() == com.tradecore.enums.OrderSide.BUY) {
+                buyerId = order.getTrader().getTraderId();
+                sellerId = bestOpposite.getTrader().getTraderId();
+            } else {
+                buyerId = bestOpposite.getTrader().getTraderId();
+                sellerId = order.getTrader().getTraderId();
+            }
+
+            Trade trade = new Trade(
+                    order.getSymbol(),
+                    tradePrice,
+                    tradeQty,
+                    buyerId,
+                    sellerId
+            );
+
+            order.reduceQuantity(tradeQty);
+            bestOpposite.reduceQuantity(tradeQty);
+
+            if (bestOpposite.getQuantity() == 0) {
+                if (bestOpposite.getSide() == com.tradecore.enums.OrderSide.BUY) {
+                    orderBook.removeBestBuy();
+                } else {
+                    orderBook.removeBestSell();
+                }
+            }
+
+            log.info("Market trade executed: {}", trade);
+            eventBus.publish(new TradeExecutedEvent(trade));
         }
-
-        Order cancelledOrder =
-                stock.getOrderBook().getOrderById(orderId);
-
-        if (cancelledOrder == null) {
-            log.warn("Cancel failed: order not found id={}", orderId);
-            return false;
-        }
-
-        boolean cancelled = stock.getOrderBook().cancelOrder(orderId);
-
-        if (cancelled) {
-            log.info("Order cancelled: id={}", orderId);
-            eventBus.publish(new OrderCancelledEvent(cancelledOrder));
-        }
-
-        return cancelled;
     }
 
     /* ===================== MATCHING ===================== */
@@ -178,26 +208,10 @@ public class MatchingEngine {
         return trades;
     }
 
-    /* ===================== READ MODELS ===================== */
-
-    public TradeLedger getTradeLedger() {
-        return tradeLedger;
-    }
-
-    public StockRegistry getStockRegistry() {
-        return stockRegistry;
-    }
-
-    public EventMetricsListener getMetrics() {
-        return metrics;
-    }
-
-     /* ===================== AUTO MATCHING ===================== */
-   
     public void matchIfPossible(String symbol) {
         try {
             List<Trade> trades = match(symbol);
-    
+
             if (!trades.isEmpty()) {
                 log.info(
                         "Auto-matching triggered for symbol={} trades={}",
@@ -210,5 +224,15 @@ public class MatchingEngine {
         }
     }
 
-    
+    public TradeLedger getTradeLedger() {
+        return tradeLedger;
+    }
+
+    public StockRegistry getStockRegistry() {
+        return stockRegistry;
+    }
+
+    public EventMetricsListener getMetrics() {
+        return metrics;
+    }
 }
