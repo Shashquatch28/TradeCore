@@ -7,4 +7,4 @@ public class MarketOrderRequest {
     public int quantity;
     public OrderSide side;
     public String traderId;
-}
+} 

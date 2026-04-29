@@ -36,7 +36,6 @@ com\tradecore\api\dto\MarketOrderRequest.class
 com\tradecore\model\Tradeable.class
 com\tradecore\events\OrderPlacedEvent.class
 com\tradecore\Main.class
-com\tradecore\config\EngineConfig.class
 com\tradecore\model\LimitOrder.class
 com\tradecore\TradeCoreApplication.class
 com\tradecore\model\Trade.class

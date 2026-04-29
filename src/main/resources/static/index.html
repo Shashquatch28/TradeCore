@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>TradeCore – Live Market</title>
+
+<style>
+:root {
+    --bg: #0b1220;
+    --card: rgba(30, 41, 59, 0.6);
+    --border: rgba(255,255,255,0.08);
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --green: #22c55e;
+    --red: #ef4444;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: var(--text);
+    padding: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.card {
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+h1 { color: var(--accent); }
+h2 { color: var(--muted); }
+
+.price-box {
+    font-size: 22px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #020617;
+    color: var(--text);
+    margin: 5px;
+}
+
+button {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    background: var(--accent);
+    cursor: pointer;
+}
+
+.btn-sell {
+    background: var(--red);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>TradeCore</h1>
+
+<!-- SELECT STOCK -->
+<div class="card">
+    <h2>Market</h2>
+
+    <select id="symbolSelect" onchange="changeSymbol()">
+        <option value="AAPL">AAPL</option>
+        <option value="MSFT">MSFT</option>
+        <option value="GOOG">GOOG</option>
+    </select>
+
+    <div class="price-box">
+        Price: <span id="price">--</span>
+    </div>
+</div>
+
+<!-- PLACE ORDER -->
+<div class="card">
+    <h2>Place Order</h2>
+
+    <input id="quantity" placeholder="Quantity">
+    <input id="traderId" placeholder="Trader ID (T1)">
+
+    <br>
+
+    <button onclick="placeOrder('BUY')">BUY</button>
+    <button class="btn-sell" onclick="placeOrder('SELL')">SELL</button>
+</div>
+
+<!-- TRADES -->
+<div class="card">
+    <h2>Live Trades</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Buyer</th>
+                <th>Seller</th>
+            </tr>
+        </thead>
+        <tbody id="trades"></tbody>
+    </table>
+</div>
+
+</div>
+
+<script>
+
+let currentSymbol = "AAPL";
+
+function changeSymbol() {
+    currentSymbol = document.getElementById("symbolSelect").value;
+}
+
+const ws = new WebSocket("ws://localhost:8080/ws/market");
+
+ws.onmessage = (event) => {
+    const msg = JSON.parse(event.data);
+
+    if (msg.type === "PRICE_TICK") {
+        if (msg.price.symbol === currentSymbol) {
+            document.getElementById("price").textContent =
+                msg.price.price.toFixed(2);
+        }
+    }
+
+    if (msg.type === "TRADE_EXECUTED") {
+        const t = msg.trade;
+
+        if (t.symbol !== currentSymbol) return;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${t.symbol}</td>
+            <td>${t.quantity}</td>
+            <td>${t.price}</td>
+            <td>${t.buyerId}</td>
+            <td>${t.sellerId}</td>
+        `;
+
+        document.getElementById("trades").prepend(row);
+    }
+};
+
+async function placeOrder(side) {
+    const quantity = parseInt(document.getElementById("quantity").value);
+    const traderId = document.getElementById("traderId").value;
+
+    await fetch('/orders/market', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            symbol: currentSymbol,
+            quantity,
+            side,
+            traderId
+        })
+    });
+
+    alert(side + " order placed");
+}
+
+</script>
+
+</body>
+</html>

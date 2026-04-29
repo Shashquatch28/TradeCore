@@ -1,6 +1,7 @@
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\dto\LimitOrderRequest.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\dto\MarketOrderRequest.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\OrderController.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\TradeController.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\config\EngineConfig.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\engine\AutoMatchOnPriceListener.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\engine\MatchingEngine.java
@@ -33,8 +34,12 @@ C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\Trade.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\model\Tradeable.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\observer\TradeLedger.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\persistence\TradeEntity.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\persistence\TradePersistenceListener.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\persistence\TradeRepository.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\portfolio\PortfolioUpdater.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\registry\TraderRegistry.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\service\TradeService.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\strategy\FIFOMatchingStrategy.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\strategy\MatchingStrategy.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\TradeCoreApplication.java

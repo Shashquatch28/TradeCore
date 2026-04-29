@@ -1,179 +1,145 @@
-2026-04-29 19:32:15.665 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
-2026-04-29 19:32:15.691 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
-2026-04-29 19:32:15.692 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
-2026-04-29 19:32:15.716 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 19:32:15.717 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
-2026-04-29 19:32:15.718 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
-2026-04-29 19:32:15.740 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 19:32:15.741 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
-2026-04-29 19:32:15.741 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
-2026-04-29 19:32:15.746 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
-2026-04-29 19:32:15.747 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
-2026-04-29 19:32:15.747 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
-2026-04-29 20:00:46.664 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
-2026-04-29 20:00:46.675 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
-2026-04-29 20:00:46.676 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
-2026-04-29 20:00:46.696 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 20:00:46.696 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
-2026-04-29 20:00:46.697 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
-2026-04-29 20:00:46.714 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 20:00:46.715 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
-2026-04-29 20:00:46.715 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
-2026-04-29 20:00:46.724 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
-2026-04-29 20:00:46.724 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
-2026-04-29 20:00:46.725 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
-2026-04-29 20:01:24.678 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
-2026-04-29 20:01:24.724 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
-2026-04-29 20:01:25.948 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.43
-2026-04-29 20:01:34.978 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 20:01:34.988 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
-2026-04-29 20:01:34.989 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
-2026-04-29 20:01:34.995 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.16
-2026-04-29 20:01:45.019 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.16
-2026-04-29 20:01:45.020 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.16
-2026-04-29 20:01:55.020 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.16
-2026-04-29 20:01:55.021 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.16
-2026-04-29 20:02:05.118 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.16
-2026-04-29 20:02:05.119 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.16
-2026-04-29 20:02:15.053 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.16
-2026-04-29 20:02:15.056 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.16
-2026-04-29 20:02:24.958 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.16
-2026-04-29 20:02:24.959 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.16
-2026-04-29 20:02:29.754 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
-2026-04-29 20:02:29.808 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
-2026-04-29 20:22:15.684 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
-2026-04-29 20:22:15.749 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
-2026-04-29 20:22:15.751 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
-2026-04-29 20:22:15.780 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 20:22:15.780 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
-2026-04-29 20:22:15.781 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
-2026-04-29 20:22:15.806 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 20:22:15.807 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
-2026-04-29 20:22:15.807 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
-2026-04-29 20:22:15.818 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
-2026-04-29 20:22:15.818 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
-2026-04-29 20:22:15.819 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
-2026-04-29 20:22:39.100 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server started at ws://localhost:8080/ws/market
-2026-04-29 20:22:39.270 INFO  com.tradecore.marketdata.MarketDataService - Starting MarketDataService for symbols=[AAPL] interval=10s
-2026-04-29 20:22:40.464 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.67
-2026-04-29 20:22:49.620 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 20:22:49.630 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=149.0
-2026-04-29 20:22:49.633 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=149.0, buyer=T1, seller=T2
-2026-04-29 20:22:49.643 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.67
-2026-04-29 20:22:59.530 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.67
-2026-04-29 20:22:59.531 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.67
-2026-04-29 20:23:09.595 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.67
-2026-04-29 20:23:09.596 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.67
-2026-04-29 20:23:19.597 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.67
-2026-04-29 20:23:19.600 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.67
-2026-04-29 20:23:29.552 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.67
-2026-04-29 20:23:29.553 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.67
-2026-04-29 20:23:39.807 INFO  com.tradecore.engine.PriceUpdateListener - Stock price updated: symbol=AAPL, price=269.74
-2026-04-29 20:23:39.809 INFO  com.tradecore.marketdata.MarketDataService - Price tick: AAPL @ 269.74
-2026-04-29 20:23:44.283 INFO  com.tradecore.marketdata.MarketDataService - MarketDataService stopped
-2026-04-29 20:23:44.352 INFO  com.tradecore.websocket.WebSocketServer - WebSocket server stopped
-2026-04-29 20:30:54.826 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
-2026-04-29 20:30:54.841 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
-2026-04-29 20:30:54.842 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
-2026-04-29 20:30:54.862 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 20:30:54.863 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
-2026-04-29 20:30:54.863 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
-2026-04-29 20:30:54.883 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 20:30:54.884 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
-2026-04-29 20:30:54.884 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
-2026-04-29 20:30:54.892 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
-2026-04-29 20:30:54.892 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
-2026-04-29 20:30:54.892 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
-2026-04-29 20:31:01.258 INFO  com.tradecore.TradeCoreApplication - Starting TradeCoreApplication using Java 25.0.1 with PID 34320 (C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\target\classes started by Shashwat Kumar in C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore)
-2026-04-29 20:31:01.260 INFO  com.tradecore.TradeCoreApplication - No active profile set, falling back to 1 default profile: "default"
-2026-04-29 20:31:02.207 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-04-29 20:31:02.221 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-04-29 20:31:02.224 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2026-04-29 20:31:02.225 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
-2026-04-29 20:31:02.292 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-04-29 20:31:02.293 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 973 ms
-2026-04-29 20:31:02.639 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-04-29 20:31:02.684 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-04-29 20:31:02.693 INFO  com.tradecore.TradeCoreApplication - Started TradeCoreApplication in 1.843 seconds (process running for 2.383)
-2026-04-29 21:12:33.648 INFO  com.tradecore.TradeCoreApplication - Starting TradeCoreApplication using Java 25.0.1 with PID 78844 (C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\target\classes started by Shashwat Kumar in C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore)
-2026-04-29 21:12:33.651 INFO  com.tradecore.TradeCoreApplication - No active profile set, falling back to 1 default profile: "default"
-2026-04-29 21:12:35.134 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-04-29 21:12:35.151 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-04-29 21:12:35.156 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2026-04-29 21:12:35.157 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
-2026-04-29 21:12:35.305 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-04-29 21:12:35.307 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1551 ms
-2026-04-29 21:12:36.270 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-04-29 21:12:36.350 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-04-29 21:12:36.369 INFO  com.tradecore.TradeCoreApplication - Started TradeCoreApplication in 3.328 seconds (process running for 4.147)
-2026-04-29 21:12:47.322 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-29 21:12:47.324 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-04-29 21:12:47.326 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2026-04-29 21:19:50.842 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
-2026-04-29 21:19:50.913 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
-2026-04-29 21:19:50.915 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
-2026-04-29 21:19:50.945 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 21:19:50.945 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
-2026-04-29 21:19:50.945 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
-2026-04-29 21:19:50.969 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 21:19:50.970 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
-2026-04-29 21:19:50.971 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
-2026-04-29 21:19:50.978 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
-2026-04-29 21:19:50.979 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
-2026-04-29 21:19:50.979 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
-2026-04-29 21:19:59.444 INFO  com.tradecore.TradeCoreApplication - Starting TradeCoreApplication using Java 25.0.1 with PID 12600 (C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\target\classes started by Shashwat Kumar in C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore)
-2026-04-29 21:19:59.446 INFO  com.tradecore.TradeCoreApplication - No active profile set, falling back to 1 default profile: "default"
-2026-04-29 21:20:00.333 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-04-29 21:20:00.346 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-04-29 21:20:00.349 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2026-04-29 21:20:00.350 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
-2026-04-29 21:20:00.432 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-04-29 21:20:00.433 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 926 ms
-2026-04-29 21:20:00.495 WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'orderController' defined in file [C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\target\classes\com\tradecore\api\OrderController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.tradecore.engine.MatchingEngine' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2026-04-29 21:20:00.499 INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
-2026-04-29 21:20:00.511 INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2026-04-29 21:20:00.536 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 0 of constructor in com.tradecore.api.OrderController required a bean of type 'com.tradecore.engine.MatchingEngine' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'com.tradecore.engine.MatchingEngine' in your configuration.
-
-2026-04-29 21:21:37.420 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
-2026-04-29 21:21:37.432 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
-2026-04-29 21:21:37.434 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
-2026-04-29 21:21:37.451 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 21:21:37.452 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
-2026-04-29 21:21:37.452 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
-2026-04-29 21:21:37.469 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
-2026-04-29 21:21:37.469 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
-2026-04-29 21:21:37.469 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
-2026-04-29 21:21:37.476 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
-2026-04-29 21:21:37.477 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
-2026-04-29 21:21:37.477 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
-2026-04-29 21:21:44.962 INFO  com.tradecore.TradeCoreApplication - Starting TradeCoreApplication using Java 25.0.1 with PID 21152 (C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\target\classes started by Shashwat Kumar in C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore)
-2026-04-29 21:21:44.965 INFO  com.tradecore.TradeCoreApplication - No active profile set, falling back to 1 default profile: "default"
-2026-04-29 21:21:45.945 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-04-29 21:21:45.956 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-04-29 21:21:45.959 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2026-04-29 21:21:45.959 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
-2026-04-29 21:21:46.012 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-04-29 21:21:46.013 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 986 ms
-2026-04-29 21:21:46.335 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-04-29 21:21:46.361 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-04-29 21:21:46.369 INFO  com.tradecore.TradeCoreApplication - Started TradeCoreApplication in 1.773 seconds (process running for 2.315)
-2026-04-29 21:22:22.991 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-04-29 21:22:22.991 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-04-29 21:22:22.993 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2026-04-29 21:22:23.261 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=75c84943-a565-445b-89aa-2db850aeed18, symbol=AAPL, side=BUY, qty=10, price=0.0
-2026-04-29 21:22:23.269 WARN  com.tradecore.engine.MatchingEngine - Market order cannot be filled: no liquidity symbol=AAPL
+2026-04-30 00:11:28.355 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-04-30 00:11:28.401 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-04-30 00:11:28.403 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-04-30 00:11:28.420 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-04-30 00:11:28.420 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-04-30 00:11:28.422 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-04-30 00:11:28.439 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-04-30 00:11:28.439 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-04-30 00:11:28.440 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-04-30 00:11:28.450 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-04-30 00:11:28.450 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-04-30 00:11:28.450 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-04-30 00:11:36.973 INFO  com.tradecore.TradeCoreApplication - Starting TradeCoreApplication using Java 25.0.1 with PID 63684 (C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\target\classes started by Shashwat Kumar in C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore)
+2026-04-30 00:11:36.976 INFO  com.tradecore.TradeCoreApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-30 00:11:37.625 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-30 00:11:37.712 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 80 ms. Found 1 JPA repository interface.
+2026-04-30 00:11:38.392 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-30 00:11:38.407 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-30 00:11:38.410 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-30 00:11:38.411 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-04-30 00:11:38.488 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-30 00:11:38.490 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1462 ms
+2026-04-30 00:11:38.533 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-30 00:11:38.765 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:tradecore user=SA
+2026-04-30 00:11:38.767 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-30 00:11:38.785 INFO  org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tradecore'
+2026-04-30 00:11:38.957 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-30 00:11:39.015 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-04-30 00:11:39.045 INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-30 00:11:39.466 INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-30 00:11:40.433 INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-30 00:11:40.529 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-30 00:11:40.797 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-30 00:11:41.102 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-30 00:11:41.181 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-30 00:11:41.191 INFO  com.tradecore.TradeCoreApplication - Started TradeCoreApplication in 4.615 seconds (process running for 5.222)
+2026-04-30 00:13:13.199 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-30 00:13:13.200 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-30 00:13:13.204 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-04-30 00:13:13.463 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=bc97a228-363f-42ec-8c26-7dd702831723, symbol=AAPL, side=BUY, qty=10, price=0.0
+2026-04-30 00:13:13.473 WARN  com.tradecore.engine.MatchingEngine - Market order cannot be filled: no liquidity symbol=AAPL
+2026-04-30 00:16:25.688 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-30 00:16:25.692 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-30 00:16:25.694 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-30 00:16:36.500 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O3, symbol=TSLA, side=BUY, qty=200, price=300.0
+2026-04-30 00:16:36.513 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O4, symbol=TSLA, side=SELL, qty=100, price=300.0
+2026-04-30 00:16:36.515 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=TSLA, qty=100, price=300.0, buyer=B1, seller=S1
+2026-04-30 00:16:36.531 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-04-30 00:16:36.547 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=100, price=150.0
+2026-04-30 00:16:36.548 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=100, price=150.0, buyer=B1, seller=S1
+2026-04-30 00:16:36.565 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=B1, symbol=AAPL, side=BUY, qty=100, price=150.0
+2026-04-30 00:16:36.566 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=S1, symbol=AAPL, side=SELL, qty=40, price=149.0
+2026-04-30 00:16:36.566 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=40, price=149.0, buyer=T1, seller=T2
+2026-04-30 00:16:36.574 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O1, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-04-30 00:16:36.574 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=O2, symbol=AAPL, side=SELL, qty=10, price=149.0
+2026-04-30 00:16:36.575 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=149.0, buyer=T1, seller=T2
+2026-04-30 00:16:45.392 INFO  com.tradecore.TradeCoreApplication - Starting TradeCoreApplication using Java 25.0.1 with PID 24284 (C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\target\classes started by Shashwat Kumar in C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore)
+2026-04-30 00:16:45.395 INFO  com.tradecore.TradeCoreApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-30 00:16:45.992 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-30 00:16:46.055 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 1 JPA repository interface.
+2026-04-30 00:16:46.570 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-30 00:16:46.582 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-30 00:16:46.585 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-30 00:16:46.585 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-04-30 00:16:46.648 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-30 00:16:46.649 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1202 ms
+2026-04-30 00:16:46.688 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-30 00:16:46.883 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:tradecore user=SA
+2026-04-30 00:16:46.887 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-30 00:16:46.901 INFO  org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tradecore'
+2026-04-30 00:16:47.055 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-30 00:16:47.120 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-04-30 00:16:47.153 INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-30 00:16:47.461 INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-30 00:16:48.365 INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-30 00:16:48.423 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-30 00:16:48.669 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-30 00:16:48.978 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-30 00:16:49.047 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-30 00:16:49.055 INFO  com.tradecore.TradeCoreApplication - Started TradeCoreApplication in 4.027 seconds (process running for 4.51)
+2026-04-30 00:17:08.065 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-30 00:17:08.066 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-30 00:17:08.070 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-04-30 00:17:08.318 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=9f374597-beac-4600-93a3-7bcdab9d3d49, symbol=AAPL, side=BUY, qty=10, price=150.0
+2026-04-30 00:17:13.342 INFO  com.tradecore.engine.MatchingEngine - Order submitted: id=277a7daa-5fae-49aa-9158-df47d7b3894d, symbol=AAPL, side=SELL, qty=10, price=150.0
+2026-04-30 00:17:13.345 INFO  com.tradecore.engine.MatchingEngine - Trade executed: symbol=AAPL, qty=10, price=150.0, buyer=T1, seller=T2
+2026-04-30 01:16:34.231 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m46s666ms706µs700ns).
+2026-04-30 01:17:24.509 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-30 01:17:24.513 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-30 01:17:24.517 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-30 01:19:20.188 INFO  com.tradecore.TradeCoreApplication - Starting TradeCoreApplication using Java 25.0.1 with PID 59096 (C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\target\classes started by Shashwat Kumar in C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore)
+2026-04-30 01:19:20.191 INFO  com.tradecore.TradeCoreApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-30 01:19:20.913 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-30 01:19:20.977 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 1 JPA repository interface.
+2026-04-30 01:19:21.564 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-30 01:19:21.583 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-30 01:19:21.586 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-30 01:19:21.586 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-04-30 01:19:21.680 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-30 01:19:21.681 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1426 ms
+2026-04-30 01:19:21.728 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-30 01:19:22.024 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:tradecore user=SA
+2026-04-30 01:19:22.027 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-30 01:19:22.045 INFO  org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tradecore'
+2026-04-30 01:19:22.223 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-30 01:19:22.350 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-04-30 01:19:22.419 INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-30 01:19:22.914 INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-30 01:19:24.210 INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-30 01:19:24.283 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-30 01:19:24.547 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-30 01:19:24.881 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-30 01:19:24.917 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-30 01:19:24.926 INFO  com.tradecore.TradeCoreApplication - Started TradeCoreApplication in 5.216 seconds (process running for 6.06)
+2026-04-30 01:19:43.159 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-30 01:19:43.160 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-30 01:19:43.164 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-04-30 01:28:28.294 INFO  com.tradecore.TradeCoreApplication - Starting TradeCoreApplication using Java 25.0.1 with PID 42580 (C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\target\classes started by Shashwat Kumar in C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore)
+2026-04-30 01:28:28.297 INFO  com.tradecore.TradeCoreApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-30 01:28:29.001 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-30 01:28:29.062 INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interface.
+2026-04-30 01:28:29.579 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-30 01:28:29.591 INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-30 01:28:29.594 INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-30 01:28:29.594 INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-04-30 01:28:29.697 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-30 01:28:29.698 INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1340 ms
+2026-04-30 01:28:29.733 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-30 01:28:29.950 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:tradecore user=SA
+2026-04-30 01:28:29.954 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-30 01:28:29.971 INFO  org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tradecore'
+2026-04-30 01:28:30.127 INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-30 01:28:30.178 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-04-30 01:28:30.215 INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-30 01:28:30.576 INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-30 01:28:31.498 INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-30 01:28:31.558 INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-30 01:28:31.790 WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-30 01:28:31.809 INFO  org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-04-30 01:28:32.070 INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-30 01:28:32.093 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-30 01:28:32.101 INFO  com.tradecore.TradeCoreApplication - Started TradeCoreApplication in 4.195 seconds (process running for 4.742)
+2026-04-30 01:28:43.095 INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-30 01:28:43.096 INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-30 01:28:43.099 INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
