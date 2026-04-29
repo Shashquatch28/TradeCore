@@ -6,13 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * Periodically polls market prices and emits PriceTickEvent.
+ * Supports fallback simulation for robustness.
  */
 public class MarketDataService {
 
@@ -21,8 +20,12 @@ public class MarketDataService {
 
     private final MarketDataProvider provider;
     private final EventBus eventBus;
+
     private final ScheduledExecutorService scheduler =
             Executors.newSingleThreadScheduledExecutor();
+
+    // 🔥 Maintain last known prices for smooth simulation fallback
+    private final Map<String, Double> lastPrices = new ConcurrentHashMap<>();
 
     public MarketDataService(
             MarketDataProvider provider,
@@ -52,26 +55,48 @@ public class MarketDataService {
 
         for (String symbol : symbols) {
             try {
+
                 MarketPrice price = provider.fetchPrice(symbol);
 
-                // 🔔 Publish flattened price tick event
-                eventBus.publish(
-                        new PriceTickEvent(
-                                price.getSymbol(),
-                                price.getPrice()
-                        )
-                );
+                double value = price.getPrice();
 
-                log.info(
-                        "Price tick: {} @ {}",
-                        price.getSymbol(),
-                        price.getPrice()
-                );
+                lastPrices.put(symbol, value);
+
+                publish(symbol, value);
+
+                log.debug("LIVE {} @ {}", symbol, value);
 
             } catch (Exception e) {
-                log.warn("Price fetch failed for {}", symbol, e);
+
+                log.warn("Live fetch failed for {}, switching to simulation", symbol);
+
+                double fallback = simulatePrice(symbol);
+
+                publish(symbol, fallback);
             }
         }
+    }
+
+    private void publish(String symbol, double price) {
+        eventBus.publish(
+                new PriceTickEvent(symbol, price)
+        );
+    }
+
+    /**
+     * 🔥 Random-walk simulation for fallback
+     */
+    private double simulatePrice(String symbol) {
+
+        double base = lastPrices.getOrDefault(symbol, 100.0);
+
+        double change = (Math.random() - 0.5) * 2; // -1 to +1
+
+        double newPrice = Math.max(1, base + change);
+
+        lastPrices.put(symbol, newPrice);
+
+        return newPrice;
     }
 
     public void stop() {

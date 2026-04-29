@@ -1,7 +1,9 @@
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\dto\LimitOrderRequest.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\dto\MarketOrderRequest.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\OrderController.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\PortfolioController.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\TradeController.java
+C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\api\UserController.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\config\EngineConfig.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\engine\AutoMatchOnPriceListener.java
 C:\Users\Shashwat Kumar\Desktop\Labs\TradeCore\src\main\java\com\tradecore\engine\MatchingEngine.java

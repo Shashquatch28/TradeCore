@@ -4,7 +4,8 @@ import com.tradecore.api.dto.MarketOrderRequest;
 import com.tradecore.api.dto.LimitOrderRequest;
 import com.tradecore.engine.MatchingEngine;
 import com.tradecore.model.*;
-import com.tradecore.trader.RetailTrader;
+import com.tradecore.trader.Trader;
+import com.tradecore.registry.TraderRegistry;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -14,28 +15,45 @@ import java.util.UUID;
 public class OrderController {
 
     private final MatchingEngine engine;
+    private final TraderRegistry traderRegistry;
 
-    public OrderController(MatchingEngine engine) {
+    public OrderController(MatchingEngine engine,
+                           TraderRegistry traderRegistry) {
         this.engine = engine;
+        this.traderRegistry = traderRegistry;
     }
 
     @PostMapping("/market")
     public String placeMarket(@RequestBody MarketOrderRequest req) {
+
+        // ✅ Get existing trader
+        Trader trader = traderRegistry.getTrader(req.traderId);
+
+        if (trader == null) {
+            return "Trader not found. Create user first.";
+        }
 
         MarketOrder order = new MarketOrder(
                 UUID.randomUUID().toString(),
                 req.symbol,
                 req.quantity,
                 req.side,
-                new RetailTrader(req.traderId, "User", 100000.0)
+                trader
         );
 
         engine.submitOrder(order);
+
         return "Market order placed";
     }
 
     @PostMapping("/limit")
     public String placeLimit(@RequestBody LimitOrderRequest req) {
+
+        Trader trader = traderRegistry.getTrader(req.traderId);
+
+        if (trader == null) {
+            return "Trader not found. Create user first.";
+        }
 
         LimitOrder order = new LimitOrder(
                 UUID.randomUUID().toString(),
@@ -43,10 +61,11 @@ public class OrderController {
                 req.quantity,
                 req.side,
                 req.price,
-                new RetailTrader(req.traderId, "User", 100000.0)
+                trader
         );
 
         engine.submitOrder(order);
+
         return "Limit order placed";
     }
 }

@@ -6,8 +6,7 @@ public class LimitOrderRequest {
 
     public String symbol;
     public int quantity;
-    public double price;
     public OrderSide side;
+    public double price;
     public String traderId;
-
 }

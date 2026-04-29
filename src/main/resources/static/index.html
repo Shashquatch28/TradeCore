@@ -1,82 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
-<title>TradeCore – Live Market</title>
+<title>TradeCore</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --bg: #0b1220;
-    --card: rgba(30, 41, 59, 0.6);
-    --border: rgba(255,255,255,0.08);
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --accent: #38bdf8;
+    --bg: #050816;
+    --card: rgba(20, 30, 55, 0.55);
+    --border: rgba(255,255,255,0.06);
+    --text: #e6edf3;
+    --muted: #8b9bb4;
+    --accent: #4cc9f0;
     --green: #22c55e;
     --red: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    transition: all 0.2s ease;
 }
 
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at top, #0f172a, #020617);
+    background: radial-gradient(circle at 20% 10%, #0f1b3d, #020617);
     color: var(--text);
+}
+
+/* LAYOUT */
+.container {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
     padding: 30px;
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
+/* SIDEBAR */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .card {
     background: var(--card);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
     border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px;
-    margin-top: 20px;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
-h1 { color: var(--accent); }
-h2 { color: var(--muted); }
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+}
 
+h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+h2 {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #020617;
+    color: white;
+    margin-bottom: 10px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* BUTTONS */
+button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4cc9f0, #4895ef);
+    color: black;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-sell {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+    color: white;
+}
+
+.btn-sell:hover {
+    transform: scale(1.05);
+}
+
+/* MAIN PANEL */
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* PRICE */
 .price-box {
     font-size: 22px;
+    font-weight: 600;
 }
 
+.price-up { color: var(--green); }
+.price-down { color: var(--red); }
+
+/* TABLE */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-th, td {
+th {
+    text-align: left;
+    font-size: 13px;
+    color: var(--muted);
     padding: 10px;
-    border-bottom: 1px solid var(--border);
 }
 
-input, select {
+td {
     padding: 10px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: #020617;
-    color: var(--text);
-    margin: 5px;
+    border-top: 1px solid var(--border);
 }
 
-button {
-    padding: 10px 14px;
-    border-radius: 8px;
-    border: none;
-    background: var(--accent);
-    cursor: pointer;
+/* HOVER ROW */
+tr:hover {
+    background: rgba(255,255,255,0.03);
 }
-
-.btn-sell {
-    background: var(--red);
-}
-
 </style>
 </head>
 
@@ -84,52 +159,72 @@ button {
 
 <div class="container">
 
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<div class="card">
 <h1>TradeCore</h1>
-
-<!-- SELECT STOCK -->
-<div class="card">
-    <h2>Market</h2>
-
-    <select id="symbolSelect" onchange="changeSymbol()">
-        <option value="AAPL">AAPL</option>
-        <option value="MSFT">MSFT</option>
-        <option value="GOOG">GOOG</option>
-    </select>
-
-    <div class="price-box">
-        Price: <span id="price">--</span>
-    </div>
 </div>
 
-<!-- PLACE ORDER -->
 <div class="card">
-    <h2>Place Order</h2>
-
-    <input id="quantity" placeholder="Quantity">
-    <input id="traderId" placeholder="Trader ID (T1)">
-
-    <br>
-
-    <button onclick="placeOrder('BUY')">BUY</button>
-    <button class="btn-sell" onclick="placeOrder('SELL')">SELL</button>
+<h2>Create User</h2>
+<input id="userId" placeholder="Trader ID">
+<button class="btn-primary" onclick="createUser()">Create</button>
 </div>
 
-<!-- TRADES -->
 <div class="card">
-    <h2>Live Trades</h2>
+<h2>Market</h2>
+<select id="symbolSelect" onchange="changeSymbol()">
+<option>AAPL</option>
+<option>MSFT</option>
+<option>GOOG</option>
+<option>TSLA</option>
+</select>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Symbol</th>
-                <th>Qty</th>
-                <th>Price</th>
-                <th>Buyer</th>
-                <th>Seller</th>
-            </tr>
-        </thead>
-        <tbody id="trades"></tbody>
-    </table>
+<div class="price-box">
+$ <span id="price">--</span>
+</div>
+</div>
+
+<div class="card">
+<h2>Place Order</h2>
+<input id="quantity" placeholder="Quantity">
+<input id="traderId" placeholder="Trader ID">
+
+<button class="btn-primary" onclick="placeOrder('BUY')">BUY</button>
+<button class="btn-sell" onclick="placeOrder('SELL')">SELL</button>
+</div>
+
+<div class="card">
+<h2>Portfolio</h2>
+<input id="portfolioId" placeholder="Trader ID">
+<button class="btn-primary" onclick="loadPortfolio()">Load</button>
+<pre id="portfolioOutput"></pre>
+</div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="card">
+<h2>Live Trades</h2>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Qty</th>
+<th>Price</th>
+<th>Buyer</th>
+<th>Seller</th>
+</tr>
+</thead>
+<tbody id="trades"></tbody>
+</table>
+
+</div>
+
 </div>
 
 </div>
@@ -156,10 +251,10 @@ ws.onmessage = (event) => {
 
     if (msg.type === "TRADE_EXECUTED") {
         const t = msg.trade;
-
         if (t.symbol !== currentSymbol) return;
 
         const row = document.createElement("tr");
+
         row.innerHTML = `
             <td>${t.symbol}</td>
             <td>${t.quantity}</td>
@@ -172,13 +267,25 @@ ws.onmessage = (event) => {
     }
 };
 
+async function createUser() {
+    const id = document.getElementById("userId").value;
+
+    await fetch('/users/create', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ id })
+    });
+
+    alert("User created");
+}
+
 async function placeOrder(side) {
     const quantity = parseInt(document.getElementById("quantity").value);
     const traderId = document.getElementById("traderId").value;
 
     await fetch('/orders/market', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             symbol: currentSymbol,
             quantity,
@@ -188,6 +295,16 @@ async function placeOrder(side) {
     });
 
     alert(side + " order placed");
+}
+
+async function loadPortfolio() {
+    const id = document.getElementById("portfolioId").value;
+
+    const res = await fetch(`/portfolio/${id}`);
+    const data = await res.json();
+
+    document.getElementById("portfolioOutput").textContent =
+        JSON.stringify(data, null, 2);
 }
 
 </script>
